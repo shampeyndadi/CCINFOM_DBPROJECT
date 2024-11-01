@@ -31,3 +31,41 @@ INSERT INTO Instructor (
     (12300000003, 'Jose', 'Reyes', 'Physics', 09171234569, 'jose.reyes@example.com', 103, 'MWF 14:00-15:30', '2019-07-22', 'Full-Time', 82000.00),
     (12400000004, 'Ana', 'Garcia', 'Chemistry', 09171234570, 'ana.garcia@example.com', 104, 'TTh 09:00-11:00', '2018-05-10', 'Adjunct', 30000.00),
     (12100000005, 'Ramon', 'Flores', 'Biology', 09171234571, 'ramon.flores@example.com', 105, 'MWF 08:00-09:30', '2022-01-12', 'Full-Time', 68000.00);
+
+CREATE TABLE AcademicHistory (
+    student_id INT(11),
+    program_id INT(11),
+    course_id INT(11),
+    totalUnits INT DEFAULT 120,
+    gpa DECIMAL(1,1),
+    FOREIGN KEY (student_id) REFERENCES Students(student_id),
+    FOREIGN KEY (program_id) REFERENCES Programs(program_id),
+    FOREIGN KEY (course_id) REFERENCES Courses(course_id)
+);
+
+CREATE TABLE PerformanceRecord (
+    instructor_id INT(11),
+    course_id INT(11),
+    semester VARCHAR(20),
+    year DATE,
+    classSize INT DEFAULT 40,
+    averageGrade DECIMAL(1,1),
+    FOREIGN KEY (instructor_id) REFERENCES Instructor(inst_id),
+    FOREIGN KEY (course_id) REFERENCES Courses(course_id)
+);
+
+INSERT INTO AcademicHistory (student_id, program_id, course_id, totalUnits, gpa)
+VALUES
+    (1001, 501, 101, 120, 3.5),
+    (1002, 502, 102, 115, 3.8),
+    (1003, 501, 103, 110, 3.2),
+    (1004, 503, 104, 120, 3.9),
+    (1005, 502, 105, 120, 2.7);
+
+INSERT INTO PerformanceRecord (instructor_id, course_id, semester, year, classSize, averageGrade)
+VALUES
+    (12100000001, 101, 'Fall', '2023-01-01', 35, 3.4),
+    (12200000002, 102, 'Spring', '2022-01-01', 40, 3.7),
+    (12300000003, 103, 'Fall', '2023-01-01', 38, 3.5),
+    (12400000004, 104, 'Summer', '2021-01-01', 25, 3.1),
+    (12100000005, 105, 'Spring', '2022-01-01', 32, 3.6);
