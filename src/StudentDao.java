@@ -27,4 +27,11 @@ public class StudentDao{
         }
     }
 
+    public static void main(String[] args){
+        Student s1 = new Student(12307211, "Jedidiah", "Julian", "charlesxxavier30@gmail.com", 'M', "October 1, 2004", "Cubao QC", "CCS-ST");
+
+        StudentDao testStudent = new StudentDao();
+
+        testStudent.addStudent(s1);
+    }
 }
