@@ -1,47 +1,41 @@
-public class Instructor {
-    private int instId;
-    private String instFirstName;
-    private String instLastName;
-    private String departmentName;
-    private String contactNo;
-    private String instEmail;
-    private String officeHours;
-    private String hireDate;
-    private String employmentStatus;
-    private double salary;
+public class Instructor{
+    private int instructor_id;
+    private String firstName;
+    private String lastName;
+    private int collegeId;
+    private String contact_no;
+    private String email;
 
-    public Instructor(int instId, String instFirstName, String instLastName, String departmentName,
-                      String contactNo, String instEmail, String officeHours, String hireDate,
-                      String employmentStatus, double salary) {
-        this.instId = instId;
-        this.instFirstName = instFirstName;
-        this.instLastName = instLastName;
-        this.departmentName = departmentName;
-        this.contactNo = contactNo;
-        this.instEmail = instEmail;
-        this.officeHours = officeHours;
-        this.hireDate = hireDate;
-        this.employmentStatus = employmentStatus;
-        this.salary = salary;
+    public Instructor(int instructor_id, String firstName, String lastName, int collegeId, String contact_no, String email){
+        this.instructor_id = instructor_id;
+        this.firstName = firstName;
+        this.lastName = lastName;
+        this.collegeId = collegeId;
+        this.contact_no = contact_no;
+        this.email = email;
     }
 
-    public int getInstId() {
-        return instId;
-    }
+    public int getInstructorId(){ return instructor_id; }
+    
+    public void setInstructor_id(int instructor_id) { this.instructor_id = instructor_id; }
 
-    public void setInstId(int instId) {
-        this.instId = instId;
-    }
+    public String getFirstName() { return firstName; }
 
-    public String getInstFirstName() {
-        return instFirstName;
-    }
+    public void setFirstName(String firstName) { this.firstName = firstName; }
 
-    public void setInstFirstName(String instFirstName) {
-        this.instFirstName = instFirstName;
-    }
+    public String getLastName() { return lastName; }
 
-    public String getInstLastName() {
-        return instLastName;
-    }
+    public void setLastName(String lastName) { this.lastName = lastName; }
+
+    public int getCollegeId() { return collegeId; }
+
+    public void setCollegeId(int collegeId) { this.collegeId = collegeId; }
+
+    public String getContactNo() { return contact_no; }
+
+    public void setContact_no(String contactNo) { this.contact_no = contactNo; }
+
+    public String getEmail() { return email; }
+
+    public void setEmail(String email) { this.email = email; }
 }
