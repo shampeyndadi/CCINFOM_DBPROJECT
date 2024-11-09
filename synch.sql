@@ -175,3 +175,6 @@ CREATE TABLE Students (
     CONSTRAINT students_pk PRIMARY KEY (student_id),
     CONSTRAINT students_fk_program FOREIGN KEY (program_id) REFERENCES Programs(program_id)
 );
+
+ALTER TABLE Students
+MODIFY COLUMN birth_date VARCHAR(15);
