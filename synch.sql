@@ -1,13 +1,27 @@
 USE dbapp;
 
 CREATE TABLE Programs (
-    program_id VARCHAR(6) NOT NULL,
+    program_id VARCHAR(100) NOT NULL,
     program_name VARCHAR(100) NOT NULL,
     department_name VARCHAR(50),
     degree_level VARCHAR(20),
     total_units INT,
     CONSTRAINT programs_pk PRIMARY KEY (program_id)
 );
+
+ALTER TABLE programs
+DROP COLUMN degree_level,
+DROP COLUMN total_units;
+
+ALTER TABLE programs 
+MODIFY COLUMN program_id VARCHAR (20);
+
+SELECT * FROM programs; 
+
+INSERT INTO Programs (program_id, program_name, department_name) 
+VALUES ("CCS-ST", "Software Technology", "College of Computer Studies"),
+		("CCS-CSE", "Systems Engineering", "College of Computer Studies"), 
+        ("CCS-NIS", "Network Information Systems", "College of Computer Studies");
 
 CREATE TABLE Instructor (
     inst_id INT NOT NULL,
@@ -77,8 +91,3 @@ CREATE TABLE Students (
 
 ALTER TABLE students 
 MODIFY birth_date VARCHAR(50);
-
-
-
-
-
