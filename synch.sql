@@ -1,9 +1,7 @@
-CREATE DATABASE dbapp;
-
 USE dbapp;
 
 CREATE TABLE Programs (
-    program_id INT NOT NULL,
+    program_id VARCHAR(6) NOT NULL,
     program_name VARCHAR(100) NOT NULL,
     department_name VARCHAR(50),
     degree_level VARCHAR(20),
@@ -39,7 +37,7 @@ CREATE TABLE Courses (
 CREATE TABLE Classes (
     class_id INT NOT NULL,
     course_id INT NOT NULL,
-    program_id INT,
+    program_id VARCHAR(6),
     instructor_id INT,
     term VARCHAR(10),
     school_year YEAR,
@@ -65,16 +63,22 @@ CREATE TABLE Prerequisites (
 );
 
 CREATE TABLE Students (
-    student_id INT(11) AUTO_INCREMENT,
+    student_id INT(11) NOT NULL,
     first_name VARCHAR(50) NOT NULL,
     last_name VARCHAR(50) NOT NULL,
     birth_date DATE,
     gender CHAR(1),
     address VARCHAR(50),
     email VARCHAR(50),
-    program_id INT,
+    program_id VARCHAR(6),
     CONSTRAINT students_pk PRIMARY KEY (student_id),
     CONSTRAINT students_fk_program FOREIGN KEY (program_id) REFERENCES Programs(program_id)
 );
+
+ALTER TABLE students 
+MODIFY birth_date VARCHAR(50);
+
+
+
 
 
