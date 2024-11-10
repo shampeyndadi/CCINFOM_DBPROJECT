@@ -1,3 +1,7 @@
+CREATE DATABASE dbapp;
+
+USE dbapp;
+
 CREATE TABLE Colleges (
     college_id INT NOT NULL,
     college_name VARCHAR(100) NOT NULL,
@@ -51,7 +55,7 @@ VALUES
     ('COB-MM', 'Bachelor of Science in Marketing Management', 7),
     ('COB-MABA', 'Bachelor of Science in Management Accounting with Business Analytics', 7),
     ('COB-MA', 'Bachelor of Science in Management Accounting', 7),
-    ('COS-BIOCHEM', 'Bachelor of Science in Biochemistry', 5),
+	('COS-BIOCHEM', 'Bachelor of Science in Biochemistry', 5),
     ('COS-MBIO', 'BS in Biology major in Medical Biology', 5),
     ('COS-MOLBIO', 'BS in Biology major in Molecular Biology and Biotechnology', 5),
     ('COS-SYSBIO', 'BS in Biology major in Systematics and Ecology', 5),
@@ -90,7 +94,7 @@ VALUES
     ('SOE-BS-AEI', 'Bachelor of Science in Applied Economics major in Industrial Economics', 8),
     ('SOE-BS-AEF', 'Bachelor of Science in Applied Economics major in Financial Economics', 8),
     ('SOE-AB-ECM', 'Bachelor of Arts major in Economics', 8),
-    ('BAGCED-CEP', 'Counseling and Educational Psychology', 1),
+	('BAGCED-CEP', 'Counseling and Educational Psychology', 1),
     ('BAGCED-ELM', 'Educational Leadership and Management', 1),
     ('BAGCED-EAL', 'English and Applied Linguistics', 1),
     ('BAGCED-PE', 'Physical Education', 1),
@@ -227,6 +231,29 @@ CREATE TABLE Prerequisites (
     CONSTRAINT prerequisites_fk_prerequisite FOREIGN KEY (prerequisite_id) REFERENCES Courses(course_id)
 );
 
+INSERT INTO Prerequisites (course_id, prerequisite_id)
+VALUES
+    ('CCPROG2', 'CCPROG1'),    -- CCPROG2 requires CCPROG1
+    ('CCPROG3', 'CCPROG2'),    -- CCPROG3 requires CCPROG2
+    ('CCDSTRU', 'CCPROG1'),    -- CCDSTRU requires CCPROG1
+    ('CCDSALG', 'CCDSTRU'),    -- CCDSALG requires CCDSTRU
+    ('CSADPRG', 'CCPROG3'),    -- CSADPRG requires CCPROG3
+    ('CSALGCM', 'CCDSALG'),    -- CSALGCM requires CCDSALG
+    ('CSARCH1', 'CCPROG3'),    -- CSARCH1 requires CCPROG3
+    ('CSARCH2', 'CSARCH1'),    -- CSARCH2 requires CSARCH1
+    ('CSOPESY', 'CCPROG3'),    -- CSOPESY requires CCPROG3
+    ('CSINTSY', 'CCDSALG'),    -- CSINTSY requires CCDSALG
+    ('CSINTSY', 'CCDSTRU'),    -- CSINTSY requires CCDSTRU
+    ('CCAPDEV', 'CCPROG3'),    -- CCAPDEV requires CCPROG3
+    ('CCAPDEV', 'CCINFOM'),    -- CCAPDEV requires CCINFOM
+    ('CSSWENG', 'CCAPDEV'),    -- CSSWENG requires CCAPDEV
+    ('STADVDB', 'CCINFOM'),    -- STADVDB requires CCINFOM
+    ('STALGC', 'CSALGCM'),     -- STALGC requires CSALGCM
+    ('STHCUIX', 'CSSWENG'),    -- STHCUIX requires CSSWENG
+    ('STINTSY', 'CSINTSY'),    -- STINTSY requires CSINTSY
+    ('STDISCM', 'CSOPESY'),    -- STDISCM requires CSOPESY
+    ('STMETRE', 'STALGC');   -- STMETRE requires STALGC
+    
 CREATE TABLE Students (
     student_id INT NOT NULL,
     first_name VARCHAR(50) NOT NULL,
@@ -236,6 +263,28 @@ CREATE TABLE Students (
     address VARCHAR(100),
     email VARCHAR(50) UNIQUE,
     program_id VARCHAR(20),
+    account_password VARCHAR(20),
     CONSTRAINT students_pk PRIMARY KEY (student_id),
     CONSTRAINT students_fk_program FOREIGN KEY (program_id) REFERENCES Programs(program_id)
+);
+
+CREATE TABLE AcademicHistory (
+    record_id INT AUTO_INCREMENT,
+    student_id INT NOT NULL,
+    course_id VARCHAR(10) NOT NULL,
+    grade DECIMAL(4, 2),
+    status VARCHAR(20) CHECK (status IN ('Completed', 'In Progress', 'Failed')),
+    CONSTRAINT academicHistory_pk_record_id PRIMARY KEY (record_id),
+    CONSTRAINT academicHistory_fk_student FOREIGN KEY (student_id) REFERENCES Students(student_id),
+    CONSTRAINT academicHistory_fk_course FOREIGN KEY (course_id) REFERENCES Courses(course_id)
+);
+
+CREATE TABLE Enrollments (
+    enrollment_id INT AUTO_INCREMENT,
+    student_id INT NOT NULL,
+    class_id INT NOT NULL,
+    enrollment_date DATE DEFAULT (CURDATE()),
+    CONSTRAINT enrollments_pk PRIMARY KEY (enrollment_id),
+    CONSTRAINT enrollments_fk_student FOREIGN KEY (student_id) REFERENCES Students(student_id),
+    CONSTRAINT enrollments_fk_class FOREIGN KEY (class_id) REFERENCES Classes(class_id)
 );
