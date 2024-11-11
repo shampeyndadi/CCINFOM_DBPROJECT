@@ -112,17 +112,13 @@ CREATE TABLE Instructor (
     CONSTRAINT instructor_pk PRIMARY KEY (inst_id),
     CONSTRAINT instructor_fk_college FOREIGN KEY (college_id) REFERENCES Colleges(college_id)
 );
-
+    
 CREATE TABLE Courses (
     course_id VARCHAR(10) NOT NULL,
     course_name VARCHAR(100) NOT NULL,
     units INT(2) NOT NULL,
-    instructor_id INT,
-    prerequisite_id VARCHAR(10),
     college_id INT NOT NULL,
     CONSTRAINT courses_pk PRIMARY KEY (course_id),
-    CONSTRAINT courses_fk_instructor FOREIGN KEY (instructor_id) REFERENCES Instructor(inst_id),
-    CONSTRAINT courses_fk_prerequisite FOREIGN KEY (prerequisite_id) REFERENCES Courses(course_id),
     CONSTRAINT courses_fk_college FOREIGN KEY (college_id) REFERENCES Colleges(college_id)
 );
 
@@ -254,7 +250,7 @@ VALUES
     ('STINTSY', 'CSINTSY'),    -- STINTSY requires CSINTSY
     ('STDISCM', 'CSOPESY'),    -- STDISCM requires CSOPESY
     ('STMETRE', 'STALGC');   -- STMETRE requires STALGC
-    
+
 CREATE TABLE Students (
     student_id INT NOT NULL,
     first_name VARCHAR(50) NOT NULL,
@@ -269,16 +265,19 @@ CREATE TABLE Students (
     CONSTRAINT students_fk_program FOREIGN KEY (program_id) REFERENCES Programs(program_id)
 );
 
-CREATE TABLE AcademicHistory (
-    record_id INT AUTO_INCREMENT,
+CREATE TABLE CompletedCourses (
     student_id INT NOT NULL,
     course_id VARCHAR(10) NOT NULL,
+    completion_date DATE,
     grade DECIMAL(4, 2),
     status VARCHAR(20) CHECK (status IN ('Completed', 'In Progress', 'Failed')),
-    CONSTRAINT academicHistory_pk_record_id PRIMARY KEY (record_id),
-    CONSTRAINT academicHistory_fk_student FOREIGN KEY (student_id) REFERENCES Students(student_id),
-    CONSTRAINT academicHistory_fk_course FOREIGN KEY (course_id) REFERENCES Courses(course_id)
+    CONSTRAINT completedCourses_pk PRIMARY KEY (student_id, course_id),
+    CONSTRAINT completedCourses_fk_student FOREIGN KEY (student_id) REFERENCES Students(student_id),
+    CONSTRAINT completedCourses_fk_course FOREIGN KEY (course_id) REFERENCES Courses(course_id)
 );
+
+ALTER TABLE CompletedCourses
+MODIFY status VARCHAR(20) CHECK (status IN ('Completed', 'In Progress', 'Failed'));
 
 CREATE TABLE Enrollments (
     enrollment_id INT AUTO_INCREMENT,
@@ -289,3 +288,41 @@ CREATE TABLE Enrollments (
     CONSTRAINT enrollments_fk_student FOREIGN KEY (student_id) REFERENCES Students(student_id),
     CONSTRAINT enrollments_fk_class FOREIGN KEY (class_id) REFERENCES Classes(class_id)
 );
+
+-- Classes for CCPROG1 (Instructor: 100000196 - Lara Scott)
+INSERT INTO Classes (class_id, course_id, program_id, section, instructor_id, college_id, term, school_year, schedule, room_number, max_capacity)
+VALUES
+    (1001, 'CCPROG1', 'CCS-ST', 'S1', 100000196, 2, '1st Term', 2024, '2024-09-04 08:00:00', 'G201', 30),
+    (1002, 'CCPROG1', 'CCS-ST', 'S2', 100000197, 2, '1st Term', 2024, '2024-09-05 10:00:00', 'G202', 30),
+    (1003, 'CCPROG1', 'CCS-ST', 'S3', 100000198, 2, '1st Term', 2024, '2024-09-06 14:00:00', 'G203', 30),
+    (1004, 'CCPROG1', 'CCS-ST', 'S4', 100000199, 2, '1st Term', 2024, '2024-09-07 08:00:00', 'G204', 30),
+    (1006, 'CCPROG1', 'CCS-ST', 'S5', 100000200, 2, '1st Term', 2024, '2024-09-08 10:00:00', 'G205', 30),
+    (1007, 'CCPROG1', 'CCS-ST', 'S6', 100000200, 2, '1st Term', 2024, '2024-09-08 14:00:00', 'G206', 30),
+    (1008, 'CCPROG1', 'CCS-ST', 'S7', 100000200, 2, '1st Term', 2024, '2024-09-08 10:00:00', 'G207', 30),
+    (1009, 'CCPROG1', 'CCS-ST', 'S8', 100000200, 2, '1st Term', 2024, '2024-09-08 14:00:00', 'G208', 30);
+
+-- Classes for CCPROG2 (Instructor: 100000201 - Liam Lee)
+INSERT INTO Classes (class_id, course_id, program_id, section, instructor_id, college_id, term, school_year, schedule, room_number, max_capacity)
+VALUES
+    (2001, 'CCPROG2', 'CCS-ST', 'S1', 100000201, 2, '1st Term', 2024, '2024-09-10 08:00:00', 'G206', 30),
+    (2002, 'CCPROG2', 'CCS-ST', 'S1', 100000202, 2, '1st Term', 2024, '2024-09-11 10:00:00', 'G207', 30),
+    (2003, 'CCPROG2', 'CCS-ST', 'S1', 100000203, 2, '1st Term', 2024, '2024-09-12 14:00:00', 'G208', 30),
+    (2004, 'CCPROG2', 'CCS-ST', 'S2', 100000204, 2, '1st Term', 2024, '2024-09-13 08:00:00', 'G209', 30),
+    (2005, 'CCPROG2', 'CCS-ST', 'S2', 100000205, 2, '1st Term', 2024, '2024-09-14 10:00:00', 'G210', 30);
+
+-- Classes for CCPROG3 (Instructor: 100000206 - Emily Cook)
+INSERT INTO Classes (class_id, course_id, program_id, section, instructor_id, college_id, term, school_year, schedule, room_number, max_capacity)
+VALUES
+    (3001, 'CCPROG3', 'CCS-ST', 'S1', 100000206, 2, '2nd Term', 2024, '2024-11-10 09:00:00', 'G301', 25),
+    (3002, 'CCPROG3', 'CCS-ST', 'S1', 100000207, 2, '2nd Term', 2024, '2024-11-11 11:00:00', 'G302', 25),
+    (3003, 'CCPROG3', 'CCS-ST', 'S1', 100000208, 2, '2nd Term', 2024, '2024-11-12 13:00:00', 'G303', 25),
+    (3004, 'CCPROG3', 'CCS-ST', 'S2', 100000209, 2, '2nd Term', 2024, '2024-11-13 09:00:00', 'G304', 25),
+    (3005, 'CCPROG3', 'CCS-ST', 'S2', 100000210, 2, '2nd Term', 2024, '2024-11-14 11:00:00', 'G305', 25);
+
+
+
+
+
+
+
+    
