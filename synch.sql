@@ -209,6 +209,7 @@ CREATE TABLE Classes (
     class_id INT NOT NULL,
     course_id VARCHAR(10) NOT NULL,
     program_id VARCHAR(20),
+    section VARCHAR (20),
     instructor_id INT,
     college_id INT NOT NULL,
     term VARCHAR(10),
