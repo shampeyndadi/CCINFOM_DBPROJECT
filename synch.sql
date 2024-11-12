@@ -1,5 +1,3 @@
-CREATE DATABASE dbapp;
-
 USE dbapp;
 
 CREATE TABLE Colleges (
@@ -260,10 +258,13 @@ CREATE TABLE Students (
     address VARCHAR(100),
     email VARCHAR(50) UNIQUE,
     program_id VARCHAR(20),
+    phone_number VARCHAR(20) UNIQUE,
     account_password VARCHAR(20),
     CONSTRAINT students_pk PRIMARY KEY (student_id),
     CONSTRAINT students_fk_program FOREIGN KEY (program_id) REFERENCES Programs(program_id)
 );
+
+SELECT * FROM Students;
 
 CREATE TABLE CompletedCourses (
     student_id INT NOT NULL,
@@ -275,9 +276,6 @@ CREATE TABLE CompletedCourses (
     CONSTRAINT completedCourses_fk_student FOREIGN KEY (student_id) REFERENCES Students(student_id),
     CONSTRAINT completedCourses_fk_course FOREIGN KEY (course_id) REFERENCES Courses(course_id)
 );
-
-ALTER TABLE CompletedCourses
-MODIFY status VARCHAR(20) CHECK (status IN ('Completed', 'In Progress', 'Failed'));
 
 CREATE TABLE Enrollments (
     enrollment_id INT AUTO_INCREMENT,
