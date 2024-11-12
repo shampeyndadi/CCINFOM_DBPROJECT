@@ -287,6 +287,10 @@ CREATE TABLE Enrollments (
     CONSTRAINT enrollments_fk_class FOREIGN KEY (class_id) REFERENCES Classes(class_id)
 );
 
+SELECT * FROM Students;
+
+SELECT * FROM Enrollments; 
+
 -- Classes for CCPROG1 (Instructor: 100000196 - Lara Scott)
 INSERT INTO Classes (class_id, course_id, program_id, section, instructor_id, college_id, term, school_year, schedule, room_number, max_capacity)
 VALUES
