@@ -22,7 +22,7 @@ public class AdminController {
                 String retractedUsername = adminView.getUsername().trim();
                 String retractedPassword = adminView.getPassword().trim();
 
-                if (username.equalsIgnoreCase(retractedUsername) && password.equalsIgnoreCase(retractedPassword)){
+                if (username.equals(retractedUsername) && password.equals(retractedPassword)){
                     adminView.mainView();
 
                     adminView.setSignOut(new ActionListener() {
