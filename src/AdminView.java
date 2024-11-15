@@ -1,9 +1,9 @@
 import javax.swing.*;
 import java.awt.*;
 import java.awt.event.ActionListener;
+import java.util.ArrayList;
 
 import javax.swing.table.DefaultTableModel;
-
 
 public class AdminView extends JFrame {
 
@@ -27,8 +27,6 @@ public class AdminView extends JFrame {
     private JComboBox startTimes;
     private JComboBox scheduledDays;
     private JComboBox listOfColleges;
-
-
 
     public AdminView() {
         super("AdminView");
@@ -209,15 +207,18 @@ public class AdminView extends JFrame {
 
     public void setOpenClass(ActionListener listener){ this.openClass.addActionListener(listener);}
 
+    public void setListOfColleges(ActionListener listener){
+        listOfColleges.addActionListener(listener);
+    }
+
+    public String getSelectedCollege(){
+        return (String) listOfColleges.getSelectedItem();
+    }
+
     public void populateComboBoxes(AdminDao adminDao){
         listOfColleges.removeAllItems();
         for (String college : adminDao.getColleges()) {
             listOfColleges.addItem(college);
-        }
-
-        listOfCourses.removeAllItems();
-        for (String course : adminDao.getCourses()) {
-            listOfCourses.addItem(course);
         }
 
         startTimes.removeAllItems();
@@ -228,6 +229,13 @@ public class AdminView extends JFrame {
         scheduledDays.removeAllItems();
         for (String day : adminDao.getScheduledDays()) {
             scheduledDays.addItem(day);
+        }
+    }
+
+    public void setCourses(ArrayList<String> courses){
+        listOfCourses.removeAllItems();
+        for (String course : courses) {
+            listOfCourses.addItem(course);
         }
     }
 
