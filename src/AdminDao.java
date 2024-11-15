@@ -1,4 +1,3 @@
-import javax.swing.*;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
@@ -25,19 +24,38 @@ public class AdminDao {
         return colleges;
     }
 
-    public ArrayList<String> getCourses(){
-        ArrayList<String> courses = new ArrayList<>();
-        String sql = "SELECT course_name FROM Courses";
-
+    public int getCollegeIdByName(String collegeName) {
+        String sql = "SELECT college_id FROM Colleges WHERE college_name = ?";
         try (Connection conn = DatabaseConnect.getConnection();
-             PreparedStatement stmt = conn.prepareStatement(sql);
-             ResultSet rs = stmt.executeQuery()) {
+             PreparedStatement stmt = conn.prepareStatement(sql)) {
 
-            while (rs.next()) {
-                courses.add(rs.getString("course_name"));
+            stmt.setString(1, collegeName);
+            try (ResultSet rs = stmt.executeQuery()) {
+                if (rs.next()) {
+                    return rs.getInt("college_id");
+                }
             }
         } catch (SQLException e) {
-            System.err.println("Error fetching courses: " + e.getMessage());
+            System.err.println("Error fetching college ID: " + e.getMessage());
+        }
+        return -1;
+    }
+
+    public ArrayList<String> getCourses(int collegeId) {
+        ArrayList<String> courses = new ArrayList<>();
+        String sql = "SELECT course_name FROM Courses WHERE college_id = ?";
+
+        try (Connection conn = DatabaseConnect.getConnection();
+             PreparedStatement stmt = conn.prepareStatement(sql)) {
+
+            stmt.setInt(1, collegeId);
+            try (ResultSet rs = stmt.executeQuery()) {
+                while (rs.next()) {
+                    courses.add(rs.getString("course_name"));
+                }
+            }
+        } catch (SQLException e) {
+            System.err.println("Error fetching courses by college: " + e.getMessage());
         }
 
         return courses;
