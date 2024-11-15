@@ -1,5 +1,3 @@
-CREATE DATABASE dbapp;
-
 USE dbapp;
 
 CREATE TABLE Colleges (
@@ -205,11 +203,8 @@ CREATE TABLE Classes (
     class_id INT NOT NULL,
     course_id VARCHAR(10) NOT NULL,
     program_id VARCHAR(20),
-    section VARCHAR(20),
     instructor_id INT,
     college_id INT NOT NULL,
-    term VARCHAR(10),
-    school_year YEAR,
     room_number VARCHAR(20),
     max_capacity INT,
     CONSTRAINT classes_pk PRIMARY KEY (class_id),
@@ -222,10 +217,12 @@ CREATE TABLE Classes (
 CREATE TABLE Schedules (
     schedule_id INT AUTO_INCREMENT,
     class_id INT NOT NULL,
+    instructor_id INT NOT NULL,
     scheduled_days VARCHAR(100) NOT NULL, 
-    class_hours  VARCHAR(100) NOT NULL,
+    class_hours VARCHAR(100) NOT NULL,
     CONSTRAINT schedules_pk PRIMARY KEY (schedule_id),
-    CONSTRAINT schedules_fk_class FOREIGN KEY (class_id) REFERENCES Classes(class_id)
+    CONSTRAINT schedules_fk_class FOREIGN KEY (class_id) REFERENCES Classes(class_id),
+    CONSTRAINT schedules_fk_instructor FOREIGN KEY (instructor_id) REFERENCES Instructor(inst_id)
 );
 
 CREATE TABLE Prerequisites (
@@ -404,7 +401,7 @@ VALUES
     (100000103, 'Samuel', 'Gray', 6, '09137833769', 'samuel_gray@dlsu.edu.ph'),
     (100000104, 'Lena', 'Walsh', 6, '09171224570', 'lena_walsh@dlsu.edu.ph'),
     (100000105, 'Nathaniel', 'Hayes', 6, '09137772771', 'nathaniel_hayes@dlsu.edu.ph'),
-(100000106, 'Simon', 'Carter', 5, '09137845772', 'simon_carter@dlsu.edu.ph'),
+    (100000106, 'Simon', 'Carter', 5, '09137845772', 'simon_carter@dlsu.edu.ph'),
     (100000107, 'Daisy', 'Cruz', 5, '09171234573', 'daisy_cruz@dlsu.edu.ph'),
     (100000108, 'Liam', 'Andrews', 5, '09137845774', 'liam_andrews@dlsu.edu.ph'),
     (100000109, 'Bella', 'Santiago', 5, '09171234575', 'bella_santiago@dlsu.edu.ph'),
@@ -434,7 +431,7 @@ VALUES
     (100000133, 'Sienna', 'Esquivel', 5, '09178785224', 'sienna_esquivel@dlsu.edu.ph'),
     (100000134, 'Max', 'Nunez', 5, '09137845781', 'max_nunez@dlsu.edu.ph'),
     (100000135, 'Ariana', 'Blanco', 5, '09171234582', 'ariana_blanco@dlsu.edu.ph'),
-(100000136, 'Olivia', 'Reed', 4, '09137845783', 'olivia_reed@dlsu.edu.ph'),
+    (100000136, 'Olivia', 'Reed', 4, '09137845783', 'olivia_reed@dlsu.edu.ph'),
     (100000137, 'Henry', 'Lynch', 4, '09171234584', 'henry_lynch@dlsu.edu.ph'),
     (100000138, 'Mila', 'Moreno', 4, '09137845785', 'mila_moreno@dlsu.edu.ph'),
     (100000139, 'Leo', 'Knight', 4, '09171234586', 'leo_knight@dlsu.edu.ph'),
@@ -464,7 +461,7 @@ VALUES
     (100000163, 'Asher', 'Reeves', 4, '09155545790', 'asher_reeves@dlsu.edu.ph'),
     (100000164, 'Molly', 'Sanders', 4, '09137845791', 'molly_sanders@dlsu.edu.ph'),
     (100000165, 'Finn', 'Bennett', 4, '09137848782', 'finn_bennett@dlsu.edu.ph'),
-	(100000166, 'Liam', 'Blake', 3, '09137845793', 'liam_blake@dlsu.edu.ph'),
+    (100000166, 'Liam', 'Blake', 3, '09137845793', 'liam_blake@dlsu.edu.ph'),
     (100000167, 'Sophie', 'Cooper', 3, '09171234594', 'sophie_cooper@dlsu.edu.ph'),
     (100000168, 'Ryan', 'Dawson', 3, '09137845795', 'ryan_dawson@dlsu.edu.ph'),
     (100000169, 'Ruby', 'Ellis', 3, '09171234596', 'ruby_ellis@dlsu.edu.ph'),
@@ -551,98 +548,103 @@ VALUES
     (100000250, 'Jack', 'Mason', 1, '09137845878', 'jack_mason@dlsu.edu.ph');
 
 -- Classes for CCPROG1
-INSERT INTO Classes (class_id, course_id, program_id, section, instructor_id, college_id, term, school_year, room_number, max_capacity)
+INSERT INTO Classes (class_id, course_id, program_id, instructor_id, college_id, room_number, max_capacity)
 VALUES
-    (1001, 'CCPROG1', 'CCS-ST', 'S1', 100000201, 2, '1st Term', 2024, 'G201', 30),
-    (1002, 'CCPROG1', 'CCS-ST', 'S2', 100000202, 2, '1st Term', 2024, 'G202', 30),
-    (1003, 'CCPROG1', 'CCS-NIS', 'N1', 100000203, 2, '1st Term', 2024, 'G203', 30),
-    (1004, 'CCPROG1', 'CCS-IT', 'I1', 100000204, 2, '1st Term', 2024, 'G204', 30);
+    (1001, 'CCPROG1', 'CCS-ST', 100000201, 2, 'G201', 30),
+    (1002, 'CCPROG1', 'CCS-ST', 100000202, 2, 'G202', 30),
+    (1003, 'CCPROG1', 'CCS-NIS', 100000203, 2, 'G203', 30),
+    (1004, 'CCPROG1', 'CCS-IT', 100000204, 2, 'G204', 30);
 
 -- Classes for CCPROG2
-INSERT INTO Classes (class_id, course_id, program_id, section, instructor_id, college_id, term, school_year, room_number, max_capacity)
+INSERT INTO Classes (class_id, course_id, program_id, instructor_id, college_id, room_number, max_capacity)
 VALUES
-    (2001, 'CCPROG2', 'CCS-ST', 'S1', 100000205, 2, '2nd Term', 2024, 'G205', 30),
-    (2002, 'CCPROG2', 'CCS-ST', 'S2', 100000206, 2, '2nd Term', 2024, 'G206', 30),
-    (2003, 'CCPROG2', 'CCS-NIS', 'N1', 100000207, 2, '2nd Term', 2024, 'G207', 30),
-    (2004, 'CCPROG2', 'CCS-IT', 'I1', 100000208, 2, '2nd Term', 2024, 'G208', 30);
+    (2001, 'CCPROG2', 'CCS-ST', 100000205, 2, 'G205', 30),
+    (2002, 'CCPROG2', 'CCS-ST', 100000206, 2, 'G206', 30),
+    (2003, 'CCPROG2', 'CCS-NIS', 100000207, 2, 'G207', 30),
+    (2004, 'CCPROG2', 'CCS-IT', 100000208, 2, 'G208', 30);
 
 -- Classes for CCPROG3
-INSERT INTO Classes (class_id, course_id, program_id, section, instructor_id, college_id, term, school_year, room_number, max_capacity)
+INSERT INTO Classes (class_id, course_id, program_id, instructor_id, college_id, room_number, max_capacity)
 VALUES
-    (3001, 'CCPROG3', 'CCS-ST', 'S1', 100000209, 2, '2nd Term', 2024, 'G301', 25),
-    (3002, 'CCPROG3', 'CCS-ST', 'S2', 100000210, 2, '2nd Term', 2024, 'G302', 25),
-    (3003, 'CCPROG3', 'CCS-NIS', 'N1', 100000211, 2, '2nd Term', 2024, 'G303', 25),
-    (3004, 'CCPROG3', 'CCS-IT', 'I1', 100000212, 2, '2nd Term', 2024, 'G304', 25);
+    (3001, 'CCPROG3', 'CCS-ST', 100000209, 2, 'G301', 25),
+    (3002, 'CCPROG3', 'CCS-ST', 100000210, 2, 'G302', 25),
+    (3003, 'CCPROG3', 'CCS-NIS', 100000211, 2, 'G303', 25),
+    (3004, 'CCPROG3', 'CCS-IT', 100000212, 2, 'G304', 25);
+
 
 -- Classes for CCDSTRU (Discrete Structures)
-INSERT INTO Classes (class_id, course_id, program_id, section, instructor_id, college_id, term, school_year, room_number, max_capacity)
+INSERT INTO Classes (class_id, course_id, program_id, instructor_id, college_id, room_number, max_capacity)
 VALUES
-    (4001, 'CCDSTRU', 'CCS-ST', 'S1', 100000213, 2, '1st Term', 2024, 'G401', 30),
-    (4002, 'CCDSTRU', 'CCS-ST', 'S2', 100000214, 2, '1st Term', 2024, 'G402', 30),
-    (4003, 'CCDSTRU', 'CCS-NIS', 'N1', 100000215, 2, '1st Term', 2024, 'G403', 30),
-    (4004, 'CCDSTRU', 'CCS-IT', 'I1', 100000216, 2, '1st Term', 2024, 'G404', 30);
+    (4001, 'CCDSTRU', 'CCS-ST', 100000213, 2, 'G401', 30),
+    (4002, 'CCDSTRU', 'CCS-ST', 100000214, 2, 'G402', 30),
+    (4003, 'CCDSTRU', 'CCS-NIS', 100000215, 2, 'G403', 30),
+    (4004, 'CCDSTRU', 'CCS-IT', 100000216, 2, 'G404', 30);
+
 
 -- Classes for CCAPDEV (Web Application Development)
-INSERT INTO Classes (class_id, course_id, program_id, section, instructor_id, college_id, term, school_year, room_number, max_capacity)
+INSERT INTO Classes (class_id, course_id, program_id, instructor_id, college_id, room_number, max_capacity)
 VALUES
-    (5001, 'CCAPDEV', 'CCS-ST', 'S1', 100000217, 2, '2nd Term', 2024, 'G501', 25),
-    (5002, 'CCAPDEV', 'CCS-ST', 'S2', 100000218, 2, '2nd Term', 2024, 'G502', 25),
-    (5003, 'CCAPDEV', 'CCS-NIS', 'N1', 100000219, 2, '2nd Term', 2024, 'G503', 25),
-    (5004, 'CCAPDEV', 'CCS-IT', 'I1', 100000220, 2, '2nd Term', 2024, 'G504', 25);
+    (5001, 'CCAPDEV', 'CCS-ST', 100000217, 2, 'G501', 25),
+    (5002, 'CCAPDEV', 'CCS-ST', 100000218, 2, 'G502', 25),
+    (5003, 'CCAPDEV', 'CCS-NIS', 100000219, 2, 'G503', 25),
+    (5004, 'CCAPDEV', 'CCS-IT', 100000220, 2, 'G504', 25);
+
 
 -- Classes for CSSWENG (Software Engineering)
-INSERT INTO Classes (class_id, course_id, program_id, section, instructor_id, college_id, term, school_year, room_number, max_capacity)
+INSERT INTO Classes (class_id, course_id, program_id, instructor_id, college_id, room_number, max_capacity)
 VALUES
-    (6001, 'CSSWENG', 'CCS-ST', 'S1', 100000221, 2, '2nd Term', 2024, 'G601', 25),
-    (6002, 'CSSWENG', 'CCS-ST', 'S2', 100000222, 2, '2nd Term', 2024, 'G602', 25),
-    (6003, 'CSSWENG', 'CCS-NIS', 'N1', 100000223, 2, '2nd Term', 2024, 'G603', 25),
-    (6004, 'CSSWENG', 'CCS-IT', 'I1', 100000224, 2, '2nd Term', 2024, 'G604', 25);
-
+    (6001, 'CSSWENG', 'CCS-ST', 100000221, 2, 'G601', 25),
+    (6002, 'CSSWENG', 'CCS-ST', 100000222, 2, 'G602', 25),
+    (6003, 'CSSWENG', 'CCS-NIS', 100000223, 2, 'G603', 25),
+    (6004, 'CSSWENG', 'CCS-IT', 100000224, 2, 'G604', 25);
 
 -- Schedules for CCPROG1
-INSERT INTO Schedules (class_id, scheduled_days, class_hours)
+INSERT INTO Schedules (class_id, instructor_id, scheduled_days, class_hours)
 VALUES
-    (1001, 'Monday - Wednesday', '08:00 AM - 9:00 AM'),
-    (1002, 'Tuesday - Thursday', '09:00 AM - 10:00 AM'),
-    (1003, 'Wednesday - Friday', '10:00 AM - 11:00 PM'),
-    (1004, 'Monday - Thursday', '08:00 AM - 09:00 AM');
+    (1001, 100000201, 'Monday - Wednesday', '08:00 AM - 09:00 AM'),
+    (1002, 100000202, 'Tuesday - Thursday', '09:00 AM - 10:00 AM'),
+    (1003, 100000203, 'Wednesday - Friday', '10:00 AM - 11:00 AM'),
+    (1004, 100000204, 'Monday - Thursday', '08:00 AM - 09:00 AM');
+
 
 -- Schedules for CCPROG2
-INSERT INTO Schedules (class_id, scheduled_days, class_hours)
+INSERT INTO Schedules (class_id, instructor_id, scheduled_days, class_hours)
 VALUES
-    (2001, 'Monday - Tuesday', '10:00 AM - 11:00 PM'),
-    (2002, 'Tuesday - Friday', '11:00 AM - 12:00 PM'),
-    (2003, 'Wednesday - Saturday', '01:00 PM - 02:00 PM'),
-    (2004, 'Thursday - Friday', '02:00 PM - 03:00 PM');
+    (2001, 100000205, 'Monday - Tuesday', '10:00 AM - 11:00 AM'),
+    (2002, 100000206, 'Tuesday - Friday', '11:00 AM - 12:00 PM'),
+    (2003, 100000207, 'Wednesday - Saturday', '01:00 PM - 02:00 PM'),
+    (2004, 100000208, 'Thursday - Friday', '02:00 PM - 03:00 PM');
+
 
 -- Schedules for CCPROG3
-INSERT INTO Schedules (class_id, scheduled_days, class_hours)
+INSERT INTO Schedules (class_id, instructor_id, scheduled_days, class_hours)
 VALUES
-    (3001, 'Monday - Wednesday', '02:00 PM - 03:00 PM'),
-    (3002, 'Tuesday - Thursday', '03:00 PM - 04:00 PM'),
-    (3003, 'Wednesday - Friday', '08:00 AM - 09:00 AM'),
-    (3004, 'Thursday - Saturday', '10:00 AM - 11:00 PM');
+    (3001, 100000209, 'Monday - Wednesday', '02:00 PM - 03:00 PM'),
+    (3002, 100000210, 'Tuesday - Thursday', '03:00 PM - 04:00 PM'),
+    (3003, 100000211, 'Wednesday - Friday', '08:00 AM - 09:00 AM'),
+    (3004, 100000212, 'Thursday - Saturday', '10:00 AM - 11:00 AM');
 
 -- Schedules for CCDSTRU
-INSERT INTO Schedules (class_id, scheduled_days, class_hours)
+INSERT INTO Schedules (class_id, instructor_id, scheduled_days, class_hours)
 VALUES
-    (4001, 'Monday - Tuesday', '08:00 AM - 09:00 AM'),
-    (4002, 'Tuesday - Thursday', '01:00 PM - 02:00 PM'),
-    (4003, 'Wednesday - Friday', '11:00 AM - 12:00 PM'),
-    (4004, 'Thursday - Saturday', '09:00 AM - 10:00 AM');
+    (4001, 100000213, 'Monday - Tuesday', '08:00 AM - 09:00 AM'),
+    (4002, 100000214, 'Tuesday - Thursday', '01:00 PM - 02:00 PM'),
+    (4003, 100000215, 'Wednesday - Friday', '11:00 AM - 12:00 PM'),
+    (4004, 100000216, 'Thursday - Saturday', '09:00 AM - 10:00 AM');
+
 
 -- Schedules for CCAPDEV
-INSERT INTO Schedules (class_id, scheduled_days, class_hours)
+INSERT INTO Schedules (class_id, instructor_id, scheduled_days, class_hours)
 VALUES
-    (5001, 'Monday - Wednesday', '01:00 PM - 02:00 PM'),
-    (5002, 'Tuesday - Thursday', '02:00 PM - 03:00 PM'),
-    (5003, 'Wednesday - Friday', '03:00 PM - 04:00 PM'),
-    (5004, 'Thursday - Saturday', '01:00 PM - 02:00 PM');
+    (5001, 100000217, 'Monday - Wednesday', '01:00 PM - 02:00 PM'),
+    (5002, 100000218, 'Tuesday - Thursday', '02:00 PM - 03:00 PM'),
+    (5003, 100000219, 'Wednesday - Friday', '03:00 PM - 04:00 PM'),
+    (5004, 100000220, 'Thursday - Saturday', '01:00 PM - 02:00 PM');
 
 -- Schedules for CSSWENG
-INSERT INTO Schedules (class_id, scheduled_days, class_hours)
+INSERT INTO Schedules (class_id, instructor_id, scheduled_days, class_hours)
 VALUES
-    (6001, 'Monday - Wednesday', '09:00 AM - 10:00 AM'),
-    (6002, 'Tuesday - Thursday', '10:00 AM - 11:00 PM'),
-    (6003, 'Wednesday - Friday', '12:00 PM - 01:00 PM'),
-    (6004, 'Thursday - Saturday', '03:00 PM - 04:00 PM');
+    (6001, 100000221, 'Monday - Wednesday', '09:00 AM - 10:00 AM'),
+    (6002, 100000222, 'Tuesday - Thursday', '10:00 AM - 11:00 AM'),
+    (6003, 100000223, 'Wednesday - Friday', '12:00 PM - 01:00 PM'),
+    (6004, 100000224, 'Thursday - Saturday', '03:00 PM - 04:00 PM');
