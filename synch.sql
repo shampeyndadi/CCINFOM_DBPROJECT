@@ -1,3 +1,5 @@
+CREATE DATABASE dbapp;
+
 USE dbapp;
 
 CREATE TABLE Colleges (
@@ -7,6 +9,7 @@ CREATE TABLE Colleges (
     CONSTRAINT college_name_unique UNIQUE (college_name)
 );
 
+SELECT * FROM Students;
 INSERT INTO Colleges (college_id, college_name)
 VALUES
     (1, 'Brother Andrew Gonzalez College of Education'),
@@ -401,7 +404,7 @@ VALUES
     (100000103, 'Samuel', 'Gray', 6, '09137833769', 'samuel_gray@dlsu.edu.ph'),
     (100000104, 'Lena', 'Walsh', 6, '09171224570', 'lena_walsh@dlsu.edu.ph'),
     (100000105, 'Nathaniel', 'Hayes', 6, '09137772771', 'nathaniel_hayes@dlsu.edu.ph'),
-    (100000106, 'Simon', 'Carter', 5, '09137845772', 'simon_carter@dlsu.edu.ph'),
+(100000106, 'Simon', 'Carter', 5, '09137845772', 'simon_carter@dlsu.edu.ph'),
     (100000107, 'Daisy', 'Cruz', 5, '09171234573', 'daisy_cruz@dlsu.edu.ph'),
     (100000108, 'Liam', 'Andrews', 5, '09137845774', 'liam_andrews@dlsu.edu.ph'),
     (100000109, 'Bella', 'Santiago', 5, '09171234575', 'bella_santiago@dlsu.edu.ph'),
@@ -431,7 +434,7 @@ VALUES
     (100000133, 'Sienna', 'Esquivel', 5, '09178785224', 'sienna_esquivel@dlsu.edu.ph'),
     (100000134, 'Max', 'Nunez', 5, '09137845781', 'max_nunez@dlsu.edu.ph'),
     (100000135, 'Ariana', 'Blanco', 5, '09171234582', 'ariana_blanco@dlsu.edu.ph'),
-    (100000136, 'Olivia', 'Reed', 4, '09137845783', 'olivia_reed@dlsu.edu.ph'),
+(100000136, 'Olivia', 'Reed', 4, '09137845783', 'olivia_reed@dlsu.edu.ph'),
     (100000137, 'Henry', 'Lynch', 4, '09171234584', 'henry_lynch@dlsu.edu.ph'),
     (100000138, 'Mila', 'Moreno', 4, '09137845785', 'mila_moreno@dlsu.edu.ph'),
     (100000139, 'Leo', 'Knight', 4, '09171234586', 'leo_knight@dlsu.edu.ph'),
@@ -461,7 +464,7 @@ VALUES
     (100000163, 'Asher', 'Reeves', 4, '09155545790', 'asher_reeves@dlsu.edu.ph'),
     (100000164, 'Molly', 'Sanders', 4, '09137845791', 'molly_sanders@dlsu.edu.ph'),
     (100000165, 'Finn', 'Bennett', 4, '09137848782', 'finn_bennett@dlsu.edu.ph'),
-    (100000166, 'Liam', 'Blake', 3, '09137845793', 'liam_blake@dlsu.edu.ph'),
+	(100000166, 'Liam', 'Blake', 3, '09137845793', 'liam_blake@dlsu.edu.ph'),
     (100000167, 'Sophie', 'Cooper', 3, '09171234594', 'sophie_cooper@dlsu.edu.ph'),
     (100000168, 'Ryan', 'Dawson', 3, '09137845795', 'ryan_dawson@dlsu.edu.ph'),
     (100000169, 'Ruby', 'Ellis', 3, '09171234596', 'ruby_ellis@dlsu.edu.ph'),
@@ -648,3 +651,4 @@ VALUES
     (6002, 100000222, 'Tuesday - Thursday', '10:00 AM - 11:00 AM'),
     (6003, 100000223, 'Wednesday - Friday', '12:00 PM - 01:00 PM'),
     (6004, 100000224, 'Thursday - Saturday', '03:00 PM - 04:00 PM');
+    
