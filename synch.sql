@@ -1,3 +1,5 @@
+DROP DATABASE dbapp;
+
 CREATE DATABASE dbapp;
 
 USE dbapp;
@@ -9,7 +11,6 @@ CREATE TABLE Colleges (
     CONSTRAINT college_name_unique UNIQUE (college_name)
 );
 
-SELECT * FROM Students;
 INSERT INTO Colleges (college_id, college_name)
 VALUES
     (1, 'Brother Andrew Gonzalez College of Education'),
@@ -36,9 +37,6 @@ VALUES
     ('CCS-CSE', 'Bachelor of Science in Computer Science Major in Computer Systems Engineering', 2),
     ('CCS-IS', 'Bachelor of Science in Information Systems', 2),
     ('CCS-IT', 'Bachelor of Science in Information Technology', 2),
-    ('CCS-GAD', 'Bachelor of Science in Interactive Entertainment Major in Game Art and Design', 2),
-    ('CCS-GD', 'Bachelor of Science in Interactive Entertainment Major in Game Development', 2),
-    ('CCS-MSCS', 'Bachelor of Science (Honors) in Computer Science and Master of Science in Computer Science', 2),
     ('GCOE-CHE', 'Chemical Engineering', 6),
     ('GCOE-CE', 'Civil Engineering', 6),
     ('GCOE-ECE', 'Electronics and Computer Engineering', 6),
@@ -119,88 +117,101 @@ CREATE TABLE Courses (
     course_name VARCHAR(100) NOT NULL,
     units INT(2) NOT NULL,
     college_id INT NOT NULL,
+    program_id VARCHAR(20) DEFAULT NULL, 
     CONSTRAINT courses_pk PRIMARY KEY (course_id),
-    CONSTRAINT courses_fk_college FOREIGN KEY (college_id) REFERENCES Colleges(college_id)
+    CONSTRAINT courses_fk_college FOREIGN KEY (college_id) REFERENCES Colleges(college_id),
+    CONSTRAINT courses_fk_program FOREIGN KEY (program_id) REFERENCES Programs(program_id)
 );
 
--- Values for Computer Science -- 
-INSERT INTO Courses (course_id, course_name, units, college_id)
+-- Inserting values into Courses table based on the prefix logic
+INSERT INTO Courses (course_id, course_name, units, college_id, program_id)
 VALUES
-    ('BASMATH', 'Algebra and Trigonometry', 5, 2),
-    ('BASSTAT', 'Algebra and Statistics', 3, 2),
-    ('CCICOMP', 'Introduction to Computing', 3, 2),
-    ('CCPROG1', 'Logic Formulation and Introductory Programming', 3, 2),
-    ('CCPROG2', 'Programming with Structured Data Types', 3, 2),
-    ('CCPROG3', 'Object-Oriented Programming', 3, 2),
-    ('CCDSTRU', 'Discrete Structures', 3, 2),
-    ('CCDSALG', 'Data Structures and Algorithms', 3, 2),
-    ('CCINFOM', 'Information Management', 3, 2),
-    ('CCAPDEV', 'Web Application Development', 3, 2),
-    ('CCINOV8', 'Innovation and Technology Management', 3, 2),
-    ('CSMATH1', 'Differential Calculus', 3, 2),
-    ('CSMATH2', 'Linear Algebra for Computer Science', 3, 2),
-    ('CSMODEL', 'Modelling and Simulation', 3, 2),
-    ('CSADPRG', 'Advanced Programming Techniques', 3, 2),
-    ('CSSWENG', 'Software Engineering', 3, 2),
-    ('CSALGCM', 'Algorithms and Complexity', 3, 2),
-    ('CSNETWK', 'Introduction to Computer Networks', 3, 2),
-    ('CSARCH1', 'Introduction to Computer Organization and Architecture 1', 3, 2),
-    ('CSARCH2', 'Introduction to Computer Organization and Architecture 2 (Lecture and Laboratory)', 4, 2),
-    ('CSOPESY', 'Introduction to Operating Systems', 3, 2),
-    ('CSINTSY', 'Introduction to Artificial Intelligence', 3, 2),
-    ('CSSECDV', 'Secure Web Development', 3, 2),
-    ('ST-MATH', 'Integral Calculus for Computer Science Students', 3, 2),
-    ('STALGC', 'Advanced Algorithms and Complexities', 3, 2),
-    ('MOBDEVE', 'Mobile Development', 3, 2),
-    ('STSWENG', 'Advanced Software Engineering', 3, 2),
-    ('STADVDB', 'Advanced Database Systems', 3, 2),
-    ('STHCUIX', 'Human Computer Interactions', 3, 2),
-    ('STINTSY', 'Advanced Intelligent Systems', 3, 2),
-    ('STDISCM', 'Distributed Computing', 3, 2),
-    ('STMETRE', 'Software Technology Research Methods', 3, 2),
-    ('NSCOM01', 'Network Application Protocols', 3, 2),
-    ('NSCOM02', 'Network Connectivity and Data Delivery', 3, 2),
-    ('NSCOM03', 'Data Communications', 3, 2),
-    ('NSSECU1', 'Introduction to Security', 3, 2),
-    ('NSSECU2', 'Advanced and Offensive Security', 3, 2),
-    ('NSSECU3', 'Defensive Security', 3, 2),
-    ('NSETRON', 'Practical Electricity and Electronics', 3, 2),
-    ('NSEMBED', 'Embedded Platform Development', 3, 2),
-    ('NSAPDEV', 'Server Application Development', 3, 2),
-    ('NSDSYST', 'Introduction to Distributed Systems', 3, 2),
-    ('NSRESME', 'Network and Information Security Research Methods', 3, 2),
-    ('CE-MATH', 'Mathematical Methods for Computer Systems Engineering', 3, 2),
-    ('CEETRN1', 'Fundamentals of Electric Circuits', 4, 2),
-    ('CEETRN2', 'Basic Principles of Electronic Circuits', 4, 2),
-    ('CEETRN3', 'Linear Circuits and Communication', 4, 2),
-    ('CEEDSGN', 'Advanced Topics in Electronic Circuits and Systems', 3, 2),
-    ('CEDISP1', 'Digital Signal Processing 1', 4, 2),
-    ('CEDISP2', 'Digital Signal Processing 2', 3, 2),
-    ('CEMICRO', 'Microprocessor Interfacing', 4, 2),
-    ('CECNTRL', 'Introduction to Microcontrollers', 3, 2),
-    ('CEPARCO', 'Multiprocessing and Parallel Computing', 3, 2),
-    ('CERESME', 'Computer Systems Engineering Research Methods', 3, 2),
-    ('ITISORG', 'Organization and Management Concepts', 3, 2),
-    ('ISBISPR', 'Organizations and Business Processes', 3, 2),
-    ('ISFINMA', 'Financial and Managerial Accounting for IS', 3, 2),
-    ('ISOPRES', 'Introduction to Operations Research', 3, 2),
-    ('ISINFOM', 'Transaction Management & Descriptive Analytics', 3, 2),
-    ('ITISHCI', 'Human-Computer Interaction', 3, 2),
-    ('ISBUSPE', 'Business Performance', 3, 2),
-    ('ITISDEV', 'Business Applications Development', 3, 2),
-    ('ISANDE1', 'Systems Analysis', 3, 2),
-    ('ISINFRA', 'Introduction to IT Infrastructures', 3, 2),
-    ('ISANDE2', 'Systems Design & Development', 3, 2),
-    ('ISSYSAD', 'Systems Administration', 3, 2),
-    ('ISRESME', 'IS Research Methods', 3, 2),
-    ('ITISSES', 'Special Enterprise Systems', 3, 2),
-    ('ISSYSQA', 'Systems Quality Assurance', 3, 2),
-    ('ISPRENL', 'Predictive Analytics', 3, 2),
-    ('ISENTAR', 'Enterprise Architecture', 3, 2),
-    ('ISSECUR', 'Information Security', 3, 2),
-    ('ISSTRMA', 'IT Strategic Management', 3, 2),
-    ('ITISPRJ', 'IT Project Management', 3, 2),
-    ('ISTREND', 'Trends in Information Systems', 3, 2);
+    -- General Courses (CC and CS) with NULL program_id
+    ('BASMATH', 'Algebra and Trigonometry', 5, 2, NULL),
+    ('BASSTAT', 'Algebra and Statistics', 3, 2, NULL),
+    ('CCICOMP', 'Introduction to Computing', 3, 2, NULL),
+    ('CCPROG1', 'Logic Formulation and Introductory Programming', 3, 2, NULL),
+    ('CCPROG2', 'Programming with Structured Data Types', 3, 2, NULL),
+    ('CCPROG3', 'Object-Oriented Programming', 3, 2, NULL),
+    ('CCDSTRU', 'Discrete Structures', 3, 2, NULL),
+    ('CCDSALG', 'Data Structures and Algorithms', 3, 2, NULL),
+    ('CCINFOM', 'Information Management', 3, 2, NULL),
+    ('CCAPDEV', 'Web Application Development', 3, 2, NULL),
+    ('CCINOV8', 'Innovation and Technology Management', 3, 2, NULL),
+    ('CSMATH1', 'Differential Calculus', 3, 2, NULL),
+    ('CSMATH2', 'Linear Algebra for Computer Science', 3, 2, NULL),
+    ('CSMODEL', 'Modelling and Simulation', 3, 2, NULL),
+    ('CSADPRG', 'Advanced Programming Techniques', 3, 2, NULL),
+    ('CSSWENG', 'Software Engineering', 3, 2, NULL),
+    ('CSALGCM', 'Algorithms and Complexity', 3, 2, NULL),
+    ('CSNETWK', 'Introduction to Computer Networks', 3, 2, NULL),
+    ('CSARCH1', 'Introduction to Computer Organization and Architecture 1', 3, 2, NULL),
+    ('CSARCH2', 'Introduction to Computer Organization and Architecture 2 (Lecture and Laboratory)', 4, 2, NULL),
+    ('CSOPESY', 'Introduction to Operating Systems', 3, 2, NULL),
+    ('CSINTSY', 'Introduction to Artificial Intelligence', 3, 2, NULL),
+    ('CSSECDV', 'Secure Web Development', 3, 2, NULL),
+
+    -- Software Technology (ST)
+    ('ST-MATH', 'Integral Calculus for Computer Science Students', 3, 2, 'CCS-ST'),
+    ('STALGC', 'Advanced Algorithms and Complexities', 3, 2, 'CCS-ST'),
+    ('MOBDEVE', 'Mobile Development', 3, 2, 'CCS-ST'),
+    ('STSWENG', 'Advanced Software Engineering', 3, 2, 'CCS-ST'),
+    ('STADVDB', 'Advanced Database Systems', 3, 2, 'CCS-ST'),
+    ('STHCUIX', 'Human Computer Interactions', 3, 2, 'CCS-ST'),
+    ('STINTSY', 'Advanced Intelligent Systems', 3, 2, 'CCS-ST'),
+    ('STDISCM', 'Distributed Computing', 3, 2, 'CCS-ST'),
+    ('STMETRE', 'Software Technology Research Methods', 3, 2, 'CCS-ST'),
+
+    -- Network and Information Security (NS)
+    ('NSCOM01', 'Network Application Protocols', 3, 2, 'CCS-NIS'),
+    ('NSCOM02', 'Network Connectivity and Data Delivery', 3, 2, 'CCS-NIS'),
+    ('NSCOM03', 'Data Communications', 3, 2, 'CCS-NIS'),
+    ('NSSECU1', 'Introduction to Security', 3, 2, 'CCS-NIS'),
+    ('NSSECU2', 'Advanced and Offensive Security', 3, 2, 'CCS-NIS'),
+    ('NSSECU3', 'Defensive Security', 3, 2, 'CCS-NIS'),
+    ('NSETRON', 'Practical Electricity and Electronics', 3, 2, 'CCS-NIS'),
+    ('NSEMBED', 'Embedded Platform Development', 3, 2, 'CCS-NIS'),
+    ('NSAPDEV', 'Server Application Development', 3, 2, 'CCS-NIS'),
+    ('NSDSYST', 'Introduction to Distributed Systems', 3, 2, 'CCS-NIS'),
+    ('NSRESME', 'Network and Information Security Research Methods', 3, 2, 'CCS-NIS'),
+
+    -- Computer Systems Engineering (CE)
+    ('CE-MATH', 'Mathematical Methods for Computer Systems Engineering', 3, 2, 'CCS-CSE'),
+    ('CEETRN1', 'Fundamentals of Electric Circuits', 4, 2, 'CCS-CSE'),
+    ('CEETRN2', 'Basic Principles of Electronic Circuits', 4, 2, 'CCS-CSE'),
+    ('CEETRN3', 'Linear Circuits and Communication', 4, 2, 'CCS-CSE'),
+    ('CEEDSGN', 'Advanced Topics in Electronic Circuits and Systems', 3, 2, 'CCS-CSE'),
+    ('CEDISP1', 'Digital Signal Processing 1', 4, 2, 'CCS-CSE'),
+    ('CEDISP2', 'Digital Signal Processing 2', 3, 2, 'CCS-CSE'),
+    ('CEMICRO', 'Microprocessor Interfacing', 4, 2, 'CCS-CSE'),
+    ('CECNTRL', 'Introduction to Microcontrollers', 3, 2, 'CCS-CSE'),
+    ('CEPARCO', 'Multiprocessing and Parallel Computing', 3, 2, 'CCS-CSE'),
+    ('CERESME', 'Computer Systems Engineering Research Methods', 3, 2, 'CCS-CSE'),
+
+    -- Information Technology (IT)
+    ('ITISORG', 'Organization and Management Concepts', 3, 2, 'CCS-IT'),
+    ('ITISHCI', 'Human-Computer Interaction', 3, 2, 'CCS-IT'),
+    ('ITISDEV', 'Business Applications Development', 3, 2, 'CCS-IT'),
+    ('ITISSES', 'Special Enterprise Systems', 3, 2, 'CCS-IT'),
+    ('ITISPRJ', 'IT Project Management', 3, 2, 'CCS-IT'),
+    ('ISTREND', 'Trends in Information Systems', 3, 2, 'CCS-IT'),
+
+    -- Information Systems (IS)
+    ('ISBISPR', 'Organizations and Business Processes', 3, 2, 'CCS-IS'),
+    ('ISFINMA', 'Financial and Managerial Accounting for IS', 3, 2, 'CCS-IS'),
+    ('ISOPRES', 'Introduction to Operations Research', 3, 2, 'CCS-IS'),
+    ('ISINFOM', 'Transaction Management & Descriptive Analytics', 3, 2, 'CCS-IS'),
+    ('ISBUSPE', 'Business Performance', 3, 2, 'CCS-IS'),
+    ('ISANDE1', 'Systems Analysis', 3, 2, 'CCS-IS'),
+    ('ISINFRA', 'Introduction to IT Infrastructures', 3, 2, 'CCS-IS'),
+    ('ISANDE2', 'Systems Design & Development', 3, 2, 'CCS-IS'),
+    ('ISSYSAD', 'Systems Administration', 3, 2, 'CCS-IS'),
+    ('ISRESME', 'IS Research Methods', 3, 2, 'CCS-IS'),
+    ('ISSYSQA', 'Systems Quality Assurance', 3, 2, 'CCS-IS'),
+    ('ISPRENL', 'Predictive Analytics', 3, 2, 'CCS-IS'),
+    ('ISENTAR', 'Enterprise Architecture', 3, 2, 'CCS-IS'),
+    ('ISSECUR', 'Information Security', 3, 2, 'CCS-IS'),
+    ('ISSTRMA', 'IT Strategic Management', 3, 2, 'CCS-IS');
 
 CREATE TABLE Classes (
     class_id INT NOT NULL,
@@ -234,7 +245,7 @@ CREATE TABLE Prerequisites (
     CONSTRAINT prerequisites_pk PRIMARY KEY (course_id, prerequisite_id),
     CONSTRAINT prerequisites_fk_course FOREIGN KEY (course_id) REFERENCES Courses(course_id),
     CONSTRAINT prerequisites_fk_prerequisite FOREIGN KEY (prerequisite_id) REFERENCES Courses(course_id)
-);
+);	
 
 INSERT INTO Prerequisites (course_id, prerequisite_id)
 VALUES
@@ -253,7 +264,7 @@ VALUES
     ('CCAPDEV', 'CCINFOM'),    -- CCAPDEV requires CCINFOM
     ('CSSWENG', 'CCAPDEV'),    -- CSSWENG requires CCAPDEV
     ('STADVDB', 'CCINFOM'),    -- STADVDB requires CCINFOM
-    ('STALGC', 'CSALGCM'),     -- STALGC requires CSALGCM
+    ('STALGC',  'CSALGCM'),     -- STALGC requires CSALGCM
     ('STHCUIX', 'CSSWENG'),    -- STHCUIX requires CSSWENG
     ('STINTSY', 'CSINTSY'),    -- STINTSY requires CSINTSY
     ('STDISCM', 'CSOPESY'),    -- STDISCM requires CSOPESY
@@ -349,7 +360,7 @@ VALUES
     (100000048, 'Daniel', 'Hunt', 7, '09171234685', 'daniel_hunt@dlsu.edu.ph'),
     (100000049, 'Chloe', 'Knight', 7, '09179994586', 'chloe_knight@dlsu.edu.ph'),
     (100000050, 'Matthew', 'Woods', 7, '09178884587', 'matthew_woods@dlsu.edu.ph'),
-(100000051, 'Ella', 'Watts', 7, '09171234588', 'ella_watts@dlsu.edu.ph'),
+    (100000051, 'Ella', 'Watts', 7, '09171234588', 'ella_watts@dlsu.edu.ph'),
     (100000052, 'Sebastian', 'Fisher', 7, '09174444589', 'sebastian_fisher@dlsu.edu.ph'),
     (100000053, 'Avery', 'Riley', 7, '09171234590', 'avery_riley@dlsu.edu.ph'),
     (100000054, 'Joseph', 'Dixon', 7, '09171200091', 'joseph_dixon@dlsu.edu.ph'),
@@ -373,7 +384,7 @@ VALUES
     (100000072, 'Aaron', 'Fox', 7, '09137989779', 'aaron_fox@dlsu.edu.ph'),
     (100000073, 'Paisley', 'Moss', 7, '09131145780', 'paisley_moss@dlsu.edu.ph'),
     (100000074, 'Cole', 'Owens', 7, '09137842581', 'cole_owens@dlsu.edu.ph'),
-(100000075, 'Leo', 'Reed', 6, '09137849682', 'leo_reed@dlsu.edu.ph'),
+    (100000075, 'Leo', 'Reed', 6, '09137849682', 'leo_reed@dlsu.edu.ph'),
     (100000076, 'Hannah', 'Bell', 6, '09171333583', 'hannah_bell@dlsu.edu.ph'),
     (100000077, 'Oscar', 'Fleming', 6, '09137555784', 'oscar_fleming@dlsu.edu.ph'),
     (100000078, 'Sophia', 'Drake', 6, '09171236665', 'sophia_drake@dlsu.edu.ph'),
@@ -404,7 +415,7 @@ VALUES
     (100000103, 'Samuel', 'Gray', 6, '09137833769', 'samuel_gray@dlsu.edu.ph'),
     (100000104, 'Lena', 'Walsh', 6, '09171224570', 'lena_walsh@dlsu.edu.ph'),
     (100000105, 'Nathaniel', 'Hayes', 6, '09137772771', 'nathaniel_hayes@dlsu.edu.ph'),
-(100000106, 'Simon', 'Carter', 5, '09137845772', 'simon_carter@dlsu.edu.ph'),
+    (100000106, 'Simon', 'Carter', 5, '09137845772', 'simon_carter@dlsu.edu.ph'),
     (100000107, 'Daisy', 'Cruz', 5, '09171234573', 'daisy_cruz@dlsu.edu.ph'),
     (100000108, 'Liam', 'Andrews', 5, '09137845774', 'liam_andrews@dlsu.edu.ph'),
     (100000109, 'Bella', 'Santiago', 5, '09171234575', 'bella_santiago@dlsu.edu.ph'),
@@ -434,7 +445,7 @@ VALUES
     (100000133, 'Sienna', 'Esquivel', 5, '09178785224', 'sienna_esquivel@dlsu.edu.ph'),
     (100000134, 'Max', 'Nunez', 5, '09137845781', 'max_nunez@dlsu.edu.ph'),
     (100000135, 'Ariana', 'Blanco', 5, '09171234582', 'ariana_blanco@dlsu.edu.ph'),
-(100000136, 'Olivia', 'Reed', 4, '09137845783', 'olivia_reed@dlsu.edu.ph'),
+    (100000136, 'Olivia', 'Reed', 4, '09137845783', 'olivia_reed@dlsu.edu.ph'),
     (100000137, 'Henry', 'Lynch', 4, '09171234584', 'henry_lynch@dlsu.edu.ph'),
     (100000138, 'Mila', 'Moreno', 4, '09137845785', 'mila_moreno@dlsu.edu.ph'),
     (100000139, 'Leo', 'Knight', 4, '09171234586', 'leo_knight@dlsu.edu.ph'),
