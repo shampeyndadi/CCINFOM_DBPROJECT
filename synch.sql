@@ -1,3 +1,5 @@
+DROP DATABASE dbapp;
+
 CREATE DATABASE dbapp;
 
 USE dbapp;
@@ -52,7 +54,7 @@ VALUES
     ('COB-MM', 'Bachelor of Science in Marketing Management', 7),
     ('COB-MABA', 'Bachelor of Science in Management Accounting with Business Analytics', 7),
     ('COB-MA', 'Bachelor of Science in Management Accounting', 7),
-    ('COS-BIOCHEM', 'Bachelor of Science in Biochemistry', 5),
+	('COS-BIOCHEM', 'Bachelor of Science in Biochemistry', 5),
     ('COS-MBIO', 'BS in Biology major in Medical Biology', 5),
     ('COS-MOLBIO', 'BS in Biology major in Molecular Biology and Biotechnology', 5),
     ('COS-SYSBIO', 'BS in Biology major in Systematics and Ecology', 5),
@@ -91,7 +93,7 @@ VALUES
     ('SOE-BS-AEI', 'Bachelor of Science in Applied Economics major in Industrial Economics', 8),
     ('SOE-BS-AEF', 'Bachelor of Science in Applied Economics major in Financial Economics', 8),
     ('SOE-AB-ECM', 'Bachelor of Arts major in Economics', 8),
-    ('BAGCED-CEP', 'Counseling and Educational Psychology', 1),
+	('BAGCED-CEP', 'Counseling and Educational Psychology', 1),
     ('BAGCED-ELM', 'Educational Leadership and Management', 1),
     ('BAGCED-EAL', 'English and Applied Linguistics', 1),
     ('BAGCED-PE', 'Physical Education', 1),
@@ -286,12 +288,13 @@ CREATE TABLE Students (
 CREATE TABLE CompletedCourses (
     student_id INT NOT NULL,
     course_id VARCHAR(10) NOT NULL,
-    completion_date DATE,
-    grade DECIMAL(4, 2),
+    grade DECIMAL(2, 1) CHECK (grade IN (0.0, 1.5, 2.0, 2.5, 3.0, 3.5, 4.0)),
     status VARCHAR(20) CHECK (status IN ('Completed', 'In Progress', 'Failed')),
-    CONSTRAINT completedCourses_pk PRIMARY KEY (student_id, course_id),
-    CONSTRAINT completedCourses_fk_student FOREIGN KEY (student_id) REFERENCES Students(student_id),
-    CONSTRAINT completedCourses_fk_course FOREIGN KEY (course_id) REFERENCES Courses(course_id)
+    term VARCHAR(15) CHECK (term IN ('First Term', 'Second Term', 'Third Term')),
+    school_year VARCHAR(10) NOT NULL,
+    PRIMARY KEY (student_id, course_id),
+    FOREIGN KEY (student_id) REFERENCES Students(student_id),
+    FOREIGN KEY (course_id) REFERENCES Courses(course_id)
 );
 
 CREATE TABLE Enrollments (
@@ -303,6 +306,15 @@ CREATE TABLE Enrollments (
     CONSTRAINT enrollments_fk_student FOREIGN KEY (student_id) REFERENCES Students(student_id),
     CONSTRAINT enrollments_fk_class FOREIGN KEY (class_id) REFERENCES Classes(class_id)
 );
+
+CREATE TABLE SystemSettings (
+    setting_name VARCHAR(50) PRIMARY KEY,
+    setting_value VARCHAR(50) NOT NULL
+);
+
+INSERT INTO SystemSettings (setting_name, setting_value) VALUES ('current_school_year', '2023-2024');
+INSERT INTO SystemSettings (setting_name, setting_value) VALUES ('current_term', 'First Term');
+
 
 INSERT INTO Instructor (inst_id, inst_first_name, inst_last_name, college_id, contact_no, inst_email)
 VALUES
@@ -658,4 +670,6 @@ VALUES
     (6002, 100000222, 'Tuesday - Thursday', '10:00 AM - 11:00 AM'),
     (6003, 100000223, 'Wednesday - Friday', '12:00 PM - 01:00 PM'),
     (6004, 100000224, 'Thursday - Saturday', '03:00 PM - 04:00 PM');
+    
+
     
