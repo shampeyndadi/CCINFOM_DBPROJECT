@@ -583,4 +583,67 @@ INSERT INTO Prerequisites (course_id, prerequisite_id)  VALUES
     ('COBIBAC', 'FDNMANP');
 
 
-    
+-- Values for College of Science --
+
+INSERT INTO Courses (course_id, course_name, units, instructor_id, prerequisite_id, college_id) 
+VALUES
+    ('KEMPRN1', 'Principles of Chemistry 1', 3, 09137845772, NULL, 5),
+    ('KEMPRN2', 'Principles of Chemistry 2', 3, 09137845773, 'KEMPRN1', 5),
+    ('LBYKM10', 'Principles of Chemistry Laboratory', 2, 09137845774, 'KEMPRN1', 5),
+    ('KEMINO1', 'Inorganic Chemistry', 3, 09137845775, 'KEMPRN2', 5),
+    ('KEMORG1', 'Organic Chemistry 1', 3, 09137845776, 'KEMPRN2', 5),
+    ('LBYKM31', 'Organic Chemistry 1 Laboratory', 2, 09137845777, 'KEMORG1', 5),
+    ('KEMANA1', 'Analytical Chemistry 1', 3, 09137845778, 'KEMPRN2', 5),
+    ('LBYKM21', 'Analytical Chemistry 1 Laboratory', 2, 09137845779, 'KEMANA1', 5),
+    ('KEMORG2', 'Organic Chemistry 2', 3, 09137845780, 'KEMORG1', 5),
+    ('LBYKM32', 'Organic Chemistry 2 Laboratory', 2, 09137845781, 'KEMORG2', 5),
+    ('KEMANA2', 'Analytical Chemistry 2', 3, 09137845782, 'KEMANA1', 5),
+    ('LBYKM22', 'Analytical Chemistry 2 Laboratory', 2, 09171234572, 'KEMANA2', 5),
+    ('KEMBIO1', 'Biochemistry 1', 3, 09171234573, 'KEMORG2', 5),
+    ('LBYKM41', 'Biochemistry 1 Laboratory', 1, 09171234574, 'KEMBIO1', 5),
+    ('KEMINO2', 'Inorganic Chemistry 2', 1, 09171234575, 'KEMINO1', 5),
+    ('KEMORG3', 'Organic Chemistry 3', 3, 09171234576, 'KEMORG2', 5),
+    ('KEMANA3', 'Analytical Chemistry 3', 1, 09171234577, 'KEMANA2', 5),
+    ('LBYKM23', 'Analytical Chemistry 3 Laboratory', 3, 09171234578, 'KEMANA3', 5),
+    ('KEMBIO2', 'Biochemistry 2', 1, 09171234579, 'KEMBIO1', 5),
+    ('KEMPYS1', 'Physical Chemistry 1', 3, 09171234580, 'KEMPRN2', 5),
+    ('LBYKM51', 'Physical Chemistry 1 Laboratory', 1, 09171234581, 'KEMPYS1', 5),
+    ('LBYKM42', 'Biochemistry 2 Laboratory', 3, 09171234582, 'KEMBIO2', 5),
+    ('KEMPYS2', 'Physical Chemistry 2', 1, 09137845772, 'KEMPYS1', 5),
+    ('LBYKM52', 'Physical Chemistry 2 Laboratory', 2, 09137845773, 'KEMPYS2', 5),
+    ('KEMPYS3', 'Physical Chemistry 3', 3, 09137845774, 'KEMPYS2', 5),
+    ('KEMRESC', 'Chemistry Research', 3, 09137845775, 'LBYKM52', 5),
+    ('KEMSEMI', 'Chemistry Seminar', 3, 09137845776, NULL, 5),
+    ('KEMBEL1', 'Biochemistry Elective 1', 3, 09137845777, 'KEMBIO2', 5),
+    ('KEMBEL2', 'Biochemistry Elective 2', 3, 09137845778, 'KEMBEL1', 5);
+
+INSERT INTO Prerequisites (course_id, prerequisite_id) 
+VALUES
+    ('KEMPRN2', 'KEMPRN1'),
+    ('LBYKM10', 'KEMPRN1'),
+    ('KEMINO1', 'KEMPRN2'),
+    ('KEMORG1', 'KEMPRN2'),
+    ('LBYKM31', 'KEMORG1'),
+    ('KEMANA1', 'KEMPRN2'),
+    ('LBYKM21', 'KEMANA1'),
+    ('KEMORG2', 'KEMORG1'),
+    ('LBYKM32', 'KEMORG2'),
+    ('KEMANA2', 'KEMANA1'),
+    ('LBYKM22', 'KEMANA2'),
+    ('KEMBIO1', 'KEMORG2'),
+    ('LBYKM41', 'KEMBIO1'),
+    ('KEMINO2', 'KEMINO1'),
+    ('KEMORG3', 'KEMORG2'),
+    ('KEMANA3', 'KEMANA2'),
+    ('LBYKM23', 'KEMANA3'),
+    ('KEMBIO2', 'KEMBIO1'),
+    ('KEMPYS1', 'KEMPRN2'),
+    ('LBYKM51', 'KEMPYS1'),
+    ('LBYKM42', 'KEMBIO2'),
+    ('KEMPYS2', 'KEMPYS1'),
+    ('LBYKM52', 'KEMPYS2'),
+    ('KEMPYS3', 'KEMPYS2'),
+    ('KEMRESC', 'LBYKM52'),
+    ('KEMBEL1', 'KEMBIO2'),
+    ('KEMBEL2', 'KEMBEL1');
+
