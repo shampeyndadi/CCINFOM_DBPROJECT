@@ -1,5 +1,3 @@
-DROP DATABASE dbapp;
-
 CREATE DATABASE dbapp;
 
 USE dbapp;
@@ -54,7 +52,7 @@ VALUES
     ('COB-MM', 'Bachelor of Science in Marketing Management', 7),
     ('COB-MABA', 'Bachelor of Science in Management Accounting with Business Analytics', 7),
     ('COB-MA', 'Bachelor of Science in Management Accounting', 7),
-	('COS-BIOCHEM', 'Bachelor of Science in Biochemistry', 5),
+    ('COS-BIOCHEM', 'Bachelor of Science in Biochemistry', 5),
     ('COS-MBIO', 'BS in Biology major in Medical Biology', 5),
     ('COS-MOLBIO', 'BS in Biology major in Molecular Biology and Biotechnology', 5),
     ('COS-SYSBIO', 'BS in Biology major in Systematics and Ecology', 5),
@@ -93,7 +91,7 @@ VALUES
     ('SOE-BS-AEI', 'Bachelor of Science in Applied Economics major in Industrial Economics', 8),
     ('SOE-BS-AEF', 'Bachelor of Science in Applied Economics major in Financial Economics', 8),
     ('SOE-AB-ECM', 'Bachelor of Arts major in Economics', 8),
-	('BAGCED-CEP', 'Counseling and Educational Psychology', 1),
+    ('BAGCED-CEP', 'Counseling and Educational Psychology', 1),
     ('BAGCED-ELM', 'Educational Leadership and Management', 1),
     ('BAGCED-EAL', 'English and Applied Linguistics', 1),
     ('BAGCED-PE', 'Physical Education', 1),
@@ -111,7 +109,7 @@ CREATE TABLE Instructor (
     CONSTRAINT instructor_pk PRIMARY KEY (inst_id),
     CONSTRAINT instructor_fk_college FOREIGN KEY (college_id) REFERENCES Colleges(college_id)
 );
-    
+
 CREATE TABLE Courses (
     course_id VARCHAR(10) NOT NULL,
     course_name VARCHAR(100) NOT NULL,
@@ -274,7 +272,7 @@ CREATE TABLE Students (
     student_id INT NOT NULL,
     first_name VARCHAR(50) NOT NULL,
     last_name VARCHAR(50) NOT NULL,
-    birth_date VARCHAR(15),
+    birth_date VARCHAR(50),
     gender CHAR(1),
     address VARCHAR(100),
     email VARCHAR(50) UNIQUE,
@@ -284,8 +282,6 @@ CREATE TABLE Students (
     CONSTRAINT students_pk PRIMARY KEY (student_id),
     CONSTRAINT students_fk_program FOREIGN KEY (program_id) REFERENCES Programs(program_id)
 );
-
-SELECT * FROM Students;
 
 CREATE TABLE CompletedCourses (
     student_id INT NOT NULL,
