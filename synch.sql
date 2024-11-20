@@ -52,7 +52,7 @@ VALUES
     ('COB-MM', 'Bachelor of Science in Marketing Management', 7),
     ('COB-MABA', 'Bachelor of Science in Management Accounting with Business Analytics', 7),
     ('COB-MA', 'Bachelor of Science in Management Accounting', 7),
-	('COS-BIOCHEM', 'Bachelor of Science in Biochemistry', 5),
+    ('COS-BIOCHEM', 'Bachelor of Science in Biochemistry', 5),
     ('COS-MBIO', 'BS in Biology major in Medical Biology', 5),
     ('COS-MOLBIO', 'BS in Biology major in Molecular Biology and Biotechnology', 5),
     ('COS-SYSBIO', 'BS in Biology major in Systematics and Ecology', 5),
@@ -91,7 +91,7 @@ VALUES
     ('SOE-BS-AEI', 'Bachelor of Science in Applied Economics major in Industrial Economics', 8),
     ('SOE-BS-AEF', 'Bachelor of Science in Applied Economics major in Financial Economics', 8),
     ('SOE-AB-ECM', 'Bachelor of Arts major in Economics', 8),
-	('BAGCED-CEP', 'Counseling and Educational Psychology', 1),
+    ('BAGCED-CEP', 'Counseling and Educational Psychology', 1),
     ('BAGCED-ELM', 'Educational Leadership and Management', 1),
     ('BAGCED-EAL', 'English and Applied Linguistics', 1),
     ('BAGCED-PE', 'Physical Education', 1),
@@ -284,16 +284,24 @@ CREATE TABLE Students (
     CONSTRAINT students_fk_program FOREIGN KEY (program_id) REFERENCES Programs(program_id)
 );
 
-CREATE TABLE CompletedCourses (
+CREATE TABLE AcademicHistory (
+    academic_history_id INT AUTO_INCREMENT,
     student_id INT NOT NULL,
     course_id VARCHAR(10) NOT NULL,
-    grade DECIMAL(2, 1) CHECK (grade IN (0.0, 1.5, 2.0, 2.5, 3.0, 3.5, 4.0)),
-    status VARCHAR(20) CHECK (status IN ('Completed', 'In Progress', 'Failed')),
+    status VARCHAR(20) CHECK (status IN ('Completed', 'In Progress', 'Failed', 'Dropped', 'Incomplete')),
     term VARCHAR(15) CHECK (term IN ('First Term', 'Second Term', 'Third Term')),
     school_year VARCHAR(10) NOT NULL,
-    PRIMARY KEY (student_id, course_id),
+    PRIMARY KEY (academic_history_id),
     FOREIGN KEY (student_id) REFERENCES Students(student_id),
     FOREIGN KEY (course_id) REFERENCES Courses(course_id)
+);
+
+CREATE TABLE Grades (
+    grade_id INT AUTO_INCREMENT,
+    academic_history_id INT NOT NULL, -- Link to AcademicHistory table
+    grade DECIMAL(2, 1) CHECK (grade IN (0.0, 1.5, 2.0, 2.5, 3.0, 3.5, 4.0)),
+    PRIMARY KEY (grade_id),
+    FOREIGN KEY (academic_history_id) REFERENCES AcademicHistory(academic_history_id)
 );
 
 CREATE TABLE Enrollments (
