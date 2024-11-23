@@ -1,5 +1,3 @@
-DROP DATABASE dbapp;
-
 CREATE DATABASE dbapp;
 
 USE dbapp;
@@ -54,7 +52,7 @@ VALUES
     ('COB-MM', 'Bachelor of Science in Marketing Management', 7),
     ('COB-MABA', 'Bachelor of Science in Management Accounting with Business Analytics', 7),
     ('COB-MA', 'Bachelor of Science in Management Accounting', 7),
-	('COS-BIOCHEM', 'Bachelor of Science in Biochemistry', 5),
+    ('COS-BIOCHEM', 'Bachelor of Science in Biochemistry', 5),
     ('COS-MBIO', 'BS in Biology major in Medical Biology', 5),
     ('COS-MOLBIO', 'BS in Biology major in Molecular Biology and Biotechnology', 5),
     ('COS-SYSBIO', 'BS in Biology major in Systematics and Ecology', 5),
@@ -93,13 +91,14 @@ VALUES
     ('SOE-BS-AEI', 'Bachelor of Science in Applied Economics major in Industrial Economics', 8),
     ('SOE-BS-AEF', 'Bachelor of Science in Applied Economics major in Financial Economics', 8),
     ('SOE-AB-ECM', 'Bachelor of Arts major in Economics', 8),
-	('BAGCED-CEP', 'Counseling and Educational Psychology', 1),
+    ('BAGCED-CEP', 'Counseling and Educational Psychology', 1),
     ('BAGCED-ELM', 'Educational Leadership and Management', 1),
     ('BAGCED-EAL', 'English and Applied Linguistics', 1),
     ('BAGCED-PE', 'Physical Education', 1),
     ('BAGCED-SE', 'Science Education', 1),
     ('BAGCED-OEP', 'Offshore and Extension Programs', 1),
-    ('BAGCED-CIESOL', 'Center for Innovative Education Solutions (CIESOL)', 1);
+    ('BAGCED-CIESOL', 'Center for Innovative Education Solutions (CIESOL)', 1),
+    ('AB-LSSD', 'Bachelor of Arts in Legal Studies and Sustainable Development', 3);
 
 CREATE TABLE Instructor (
     inst_id INT NOT NULL,
@@ -213,6 +212,479 @@ VALUES
     ('ISENTAR', 'Enterprise Architecture', 3, 2, 'CCS-IS'),
     ('ISSECUR', 'Information Security', 3, 2, 'CCS-IS'),
     ('ISSTRMA', 'IT Strategic Management', 3, 2, 'CCS-IS');
+    
+INSERT INTO Courses (course_id, course_name, units, college_id, program_id)
+VALUES
+    -- Core Business Courses (Common Across COB Programs)
+    ('BUSMATH', 'Business Mathematics', 3, 7, NULL),
+    ('BUSTAT', 'Business Statistics', 3, 7, NULL),
+    ('BACC101', 'Fundamentals of Accounting', 3, 7, NULL),
+    ('BLAW101', 'Introduction to Business Law', 3, 7, NULL),
+    ('BMGT101', 'Principles of Management', 3, 7, NULL),
+    ('BMKT101', 'Principles of Marketing', 3, 7, NULL),
+    ('BFIN101', 'Introduction to Financial Management', 3, 7, NULL),
+    ('BHRM101', 'Human Resource Management', 3, 7, NULL),
+    ('BECON01', 'Introduction to Microeconomics', 3, 7, NULL),
+    ('BECON02', 'Introduction to Macroeconomics', 3, 7, NULL),
+    ('BRES101', 'Business Research Methods', 3, 7, NULL),
+    ('BETHICS', 'Business Ethics and Corporate Social Responsibility', 3, 7, NULL),
+
+    -- Bachelor of Science in Accountancy (COB-ACC)
+    ('ACC101', 'Intermediate Accounting 1', 3, 7, 'COB-ACC'),
+    ('ACC102', 'Intermediate Accounting 2', 3, 7, 'COB-ACC'),
+    ('ACC103', 'Advanced Accounting', 3, 7, 'COB-ACC'),
+    ('ACC104', 'Financial Accounting and Reporting', 3, 7, 'COB-ACC'),
+    ('ACC105', 'Auditing and Assurance 1', 3, 7, 'COB-ACC'),
+    ('ACC106', 'Auditing and Assurance 2', 3, 7, 'COB-ACC'),
+    ('ACC107', 'Management Advisory Services', 3, 7, 'COB-ACC'),
+    ('ACC108', 'Taxation', 3, 7, 'COB-ACC'),
+
+    -- Bachelor of Science in Advertising Management (COB-ADV)
+    ('ADV101', 'Introduction to Advertising', 3, 7, 'COB-ADV'),
+    ('ADV102', 'Creative Strategies in Advertising', 3, 7, 'COB-ADV'),
+    ('ADV103', 'Advertising Media Planning', 3, 7, 'COB-ADV'),
+    ('ADV104', 'Digital Advertising and Social Media', 3, 7, 'COB-ADV'),
+    ('ADV105', 'Advertising Campaign Management', 3, 7, 'COB-ADV'),
+    ('ADV106', 'Consumer Behavior and Insights', 3, 7, 'COB-ADV'),
+
+    -- Bachelor of Science in Applied Corporate Management (COB-ACM)
+    ('ACM101', 'Introduction to Corporate Management', 3, 7, 'COB-ACM'),
+    ('ACM102', 'Corporate Governance and Risk Management', 3, 7, 'COB-ACM'),
+    ('ACM103', 'Business Negotiation and Conflict Resolution', 3, 7, 'COB-ACM'),
+    ('ACM104', 'Operations and Supply Chain Management', 3, 7, 'COB-ACM'),
+    ('ACM105', 'Business Leadership and Strategy', 3, 7, 'COB-ACM'),
+
+    -- Bachelor of Science in Business Management (COB-BM)
+    ('BM101', 'Business Organization and Environment', 3, 7, 'COB-BM'),
+    ('BM102', 'Strategic Management', 3, 7, 'COB-BM'),
+    ('BM103', 'Operations Management', 3, 7, 'COB-BM'),
+    ('BM104', 'Project Management', 3, 7, 'COB-BM'),
+
+    -- Bachelor of Science in Entrepreneurship (COB-ENT)
+    ('ENT101', 'Introduction to Entrepreneurship', 3, 7, 'COB-ENT'),
+    ('ENT102', 'Business Opportunity Identification', 3, 7, 'COB-ENT'),
+    ('ENT103', 'Innovation and Product Development', 3, 7, 'COB-ENT'),
+    ('ENT104', 'Small Business Management', 3, 7, 'COB-ENT'),
+    ('ENT105', 'Entrepreneurial Finance', 3, 7, 'COB-ENT'),
+
+    -- Bachelor of Science in Interdisciplinary Business Studies (COB-IBS)
+    ('IBS101', 'Interdisciplinary Perspectives in Business', 3, 7, 'COB-IBS'),
+    ('IBS102', 'Cultural Diversity in Business', 3, 7, 'COB-IBS'),
+    ('IBS103', 'Global Business Strategies', 3, 7, 'COB-IBS'),
+    ('IBS104', 'Corporate Social Innovation', 3, 7, 'COB-IBS'),
+
+    -- Bachelor of Science in Legal Management (COB-LM)
+    ('LM101', 'Introduction to Legal Management', 3, 7, 'COB-LM'),
+    ('LM102', 'Business and Commercial Laws', 3, 7, 'COB-LM'),
+    ('LM103', 'Contracts and Obligations', 3, 7, 'COB-LM'),
+    ('LM104', 'Labor Laws and Social Legislation', 3, 7, 'COB-LM'),
+
+    -- Bachelor of Science in Management of Financial Institutions (COB-MFI)
+    ('MFI101', 'Introduction to Financial Institutions', 3, 7, 'COB-MFI'),
+    ('MFI102', 'Risk Management in Financial Institutions', 3, 7, 'COB-MFI'),
+    ('MFI103', 'Financial Markets and Instruments', 3, 7, 'COB-MFI'),
+    ('MFI104', 'Banking Operations and Management', 3, 7, 'COB-MFI'),
+
+    -- Bachelor of Science in Marketing Management (COB-MM)
+    ('MM101', 'Introduction to Marketing Management', 3, 7, 'COB-MM'),
+    ('MM102', 'Integrated Marketing Communications', 3, 7, 'COB-MM'),
+    ('MM103', 'Marketing Analytics', 3, 7, 'COB-MM'),
+    ('MM104', 'Brand Management', 3, 7, 'COB-MM'),
+
+    -- Bachelor of Science in Management Accounting with Business Analytics (COB-MABA)
+    ('MABA101', 'Introduction to Management Accounting', 3, 7, 'COB-MABA'),
+    ('MABA102', 'Cost Accounting and Control', 3, 7, 'COB-MABA'),
+    ('MABA103', 'Management Accounting for Decision Making', 3, 7, 'COB-MABA'),
+    ('MABA104', 'Business Analytics for Accounting', 3, 7, 'COB-MABA'),
+
+    -- Bachelor of Science in Management Accounting (COB-MA)
+    ('MA101', 'Principles of Management Accounting', 3, 7, 'COB-MA'),
+    ('MA102', 'Cost Accounting and Budgeting', 3, 7, 'COB-MA'),
+    ('MA103', 'Financial Management for Accountants', 3, 7, 'COB-MA'),
+    ('MA104', 'Strategic Management Accounting', 3, 7, 'COB-MA');
+ 
+INSERT INTO Courses (course_id, course_name, units, college_id, program_id)
+VALUES
+    -- Core Science Courses (Common Across COS Programs)
+    ('COSCHEM1', 'General Chemistry 1', 4, 5, NULL),
+    ('COSCHEM2', 'General Chemistry 2', 4, 5, NULL),
+    ('COSPHYS1', 'Physics 1 (Mechanics and Thermodynamics)', 4, 5, NULL),
+    ('COSPHYS2', 'Physics 2 (Electricity and Magnetism)', 4, 5, NULL),
+    ('COSMATH1', 'Calculus 1', 3, 5, NULL),
+    ('COSMATH2', 'Calculus 2', 3, 5, NULL),
+    ('COSSTAT', 'Introduction to Statistics', 3, 5, NULL),
+    ('COSBIO1', 'General Biology 1', 4, 5, NULL),
+    ('COSBIO2', 'General Biology 2', 4, 5, NULL),
+    ('COSRES1', 'Introduction to Research in Science', 3, 5, NULL),
+    ('COSRES2', 'Advanced Research Methods in Science', 3, 5, NULL),
+
+    -- Bachelor of Science in Biochemistry (COS-BIOCHEM)
+    ('BIOCHEM1', 'Introduction to Biochemistry', 4, 5, 'COS-BIOCHEM'),
+    ('BIOCHEM2', 'Metabolic Biochemistry', 4, 5, 'COS-BIOCHEM'),
+    ('BIOCHEM3', 'Molecular Biology and Biochemistry', 4, 5, 'COS-BIOCHEM'),
+    ('BIOCHEM4', 'Biochemistry Laboratory Techniques', 3, 5, 'COS-BIOCHEM'),
+    ('BIOCHEM5', 'Enzymology', 3, 5, 'COS-BIOCHEM'),
+    ('BIOCHEM6', 'Biochemical Genetics', 3, 5, 'COS-BIOCHEM'),
+    ('BIOCHEM7', 'Advanced Biochemistry', 4, 5, 'COS-BIOCHEM'),
+
+    -- BS in Biology major in Medical Biology (COS-MBIO)
+    ('MBIO1', 'Cell and Molecular Biology', 4, 5, 'COS-MBIO'),
+    ('MBIO2', 'Human Anatomy and Physiology', 4, 5, 'COS-MBIO'),
+    ('MBIO3', 'Immunology', 3, 5, 'COS-MBIO'),
+    ('MBIO4', 'Medical Microbiology', 4, 5, 'COS-MBIO'),
+    ('MBIO5', 'Pathophysiology', 4, 5, 'COS-MBIO'),
+    ('MBIO6', 'Clinical Biochemistry', 4, 5, 'COS-MBIO'),
+
+    -- BS in Biology major in Molecular Biology and Biotechnology (COS-MOLBIO)
+    ('MOLBIO1', 'Principles of Biotechnology', 4, 5, 'COS-MOLBIO'),
+    ('MOLBIO2', 'Molecular Genetics', 4, 5, 'COS-MOLBIO'),
+    ('MOLBIO3', 'Recombinant DNA Technology', 4, 5, 'COS-MOLBIO'),
+    ('MOLBIO4', 'Protein Engineering', 4, 5, 'COS-MOLBIO'),
+    ('MOLBIO5', 'Industrial Biotechnology', 4, 5, 'COS-MOLBIO'),
+    ('MOLBIO6', 'Bioinformatics', 4, 5, 'COS-MOLBIO'),
+
+    -- BS in Biology major in Systematics and Ecology (COS-SYSBIO)
+    ('SYSBIO1', 'Systematic Biology', 4, 5, 'COS-SYSBIO'),
+    ('SYSBIO2', 'Ecology and Environmental Science', 4, 5, 'COS-SYSBIO'),
+    ('SYSBIO3', 'Biodiversity Conservation', 4, 5, 'COS-SYSBIO'),
+    ('SYSBIO4', 'Marine Biology', 4, 5, 'COS-SYSBIO'),
+    ('SYSBIO5', 'Freshwater Ecology', 4, 5, 'COS-SYSBIO'),
+    ('SYSBIO6', 'Field Methods in Ecology', 3, 5, 'COS-SYSBIO'),
+
+    -- BS in Chemistry (COS-CHEM)
+    ('CHEM1', 'Analytical Chemistry', 4, 5, 'COS-CHEM'),
+    ('CHEM2', 'Organic Chemistry 1', 4, 5, 'COS-CHEM'),
+    ('CHEM3', 'Organic Chemistry 2', 4, 5, 'COS-CHEM'),
+    ('CHEM4', 'Physical Chemistry', 4, 5, 'COS-CHEM'),
+    ('CHEM5', 'Inorganic Chemistry', 4, 5, 'COS-CHEM'),
+    ('CHEM6', 'Instrumental Methods of Analysis', 4, 5, 'COS-CHEM'),
+
+    -- BS in Chemistry major in Food Science (COS-CHEMFS)
+    ('CHEMFS1', 'Food Chemistry', 4, 5, 'COS-CHEMFS'),
+    ('CHEMFS2', 'Food Microbiology', 4, 5, 'COS-CHEMFS'),
+    ('CHEMFS3', 'Food Analysis', 4, 5, 'COS-CHEMFS'),
+    ('CHEMFS4', 'Food Processing Technology', 4, 5, 'COS-CHEMFS'),
+
+    -- BS in Human Biology (COS-HUMBIO)
+    ('HUMBIO1', 'Introduction to Human Biology', 4, 5, 'COS-HUMBIO'),
+    ('HUMBIO2', 'Advanced Human Physiology', 4, 5, 'COS-HUMBIO'),
+    ('HUMBIO3', 'Genetics and Human Disease', 4, 5, 'COS-HUMBIO'),
+    ('HUMBIO4', 'Human Reproductive Biology', 4, 5, 'COS-HUMBIO'),
+
+    -- BS in Mathematics with specialization in Business Applications (COS-MATHBA)
+    ('MATHBA1', 'Mathematics of Investments', 4, 5, 'COS-MATHBA'),
+    ('MATHBA2', 'Operations Research', 4, 5, 'COS-MATHBA'),
+    ('MATHBA3', 'Quantitative Methods for Decision Making', 4, 5, 'COS-MATHBA'),
+
+    -- BS in Mathematics with specialization in Computer Applications (COS-MATHCA)
+    ('MATHCA1', 'Mathematical Foundations of Computing', 4, 5, 'COS-MATHCA'),
+    ('MATHCA2', 'Numerical Analysis', 4, 5, 'COS-MATHCA'),
+    ('MATHCA3', 'Algorithms and Mathematical Optimization', 4, 5, 'COS-MATHCA'),
+
+    -- BS in Statistics Major in Actuarial Science (COS-STAT)
+    ('STAT1', 'Probability Theory', 4, 5, 'COS-STAT'),
+    ('STAT2', 'Statistical Inference', 4, 5, 'COS-STAT'),
+    ('STAT3', 'Actuarial Mathematics', 4, 5, 'COS-STAT'),
+    ('STAT4', 'Risk Theory', 4, 5, 'COS-STAT'),
+
+    -- BS in Physics with specialization in Medical Instrumentation (COS-PHYSMED)
+    ('PHYSMED1', 'Medical Physics', 4, 5, 'COS-PHYSMED'),
+    ('PHYSMED2', 'Biomedical Instrumentation', 4, 5, 'COS-PHYSMED'),
+    ('PHYSMED3', 'Radiation Physics and Dosimetry', 4, 5, 'COS-PHYSMED'),
+    ('PHYSMED4', 'Medical Imaging', 4, 5, 'COS-PHYSMED'),
+
+    -- Bachelor of Science in Animal Biology (COS-ANBIO)
+    ('ANBIO1', 'Zoology', 4, 5, 'COS-ANBIO'),
+    ('ANBIO2', 'Animal Physiology', 4, 5, 'COS-ANBIO'),
+    ('ANBIO3', 'Animal Genetics', 4, 5, 'COS-ANBIO'),
+    ('ANBIO4', 'Wildlife Biology', 4, 5, 'COS-ANBIO');
+    
+INSERT INTO Courses (course_id, course_name, units, college_id, program_id)
+VALUES
+    -- Core Engineering Courses (Common Across GCOE Programs)
+    ('ENGCAL1', 'Engineering Calculus 1', 4, 6, NULL),
+    ('ENGCAL2', 'Engineering Calculus 2', 4, 6, NULL),
+    ('ENGPHY1', 'Engineering Physics 1', 4, 6, NULL),
+    ('ENGPHY2', 'Engineering Physics 2', 4, 6, NULL),
+    ('ENGSTAT', 'Engineering Statistics', 3, 6, NULL),
+    ('ENGDRAW', 'Engineering Drawing and CAD', 3, 6, NULL),
+    ('ENGMATH', 'Engineering Mathematics', 3, 6, NULL),
+    ('ENGECON', 'Engineering Economics', 3, 6, NULL),
+    ('ENGMECH', 'Engineering Mechanics', 3, 6, NULL),
+    ('ENGETHICS', 'Engineering Ethics and Practices', 3, 6, NULL),
+
+    -- Chemical Engineering (GCOE-CHE)
+    ('CHEMAT1', 'Material and Energy Balances', 3, 6, 'GCOE-CHE'),
+    ('CHEMENG1', 'Chemical Engineering Thermodynamics', 3, 6, 'GCOE-CHE'),
+    ('CHEMENG2', 'Transport Phenomena', 4, 6, 'GCOE-CHE'),
+    ('CHEMREA1', 'Chemical Reaction Engineering', 3, 6, 'GCOE-CHE'),
+    ('CHEMPROD', 'Chemical Process Industries', 3, 6, 'GCOE-CHE'),
+    ('CHEMPLANT', 'Plant Design and Economics', 4, 6, 'GCOE-CHE'),
+
+    -- Civil Engineering (GCOE-CE)
+    ('CESTRUC1', 'Structural Analysis 1', 3, 6, 'GCOE-CE'),
+    ('CESTRUC2', 'Structural Analysis 2', 3, 6, 'GCOE-CE'),
+    ('CESOIL', 'Soil Mechanics', 4, 6, 'GCOE-CE'),
+    ('CEHYDRO', 'Hydraulics and Hydrology', 4, 6, 'GCOE-CE'),
+    ('CECONST', 'Construction Methods and Project Management', 3, 6, 'GCOE-CE'),
+    ('CEPLANNING', 'Urban and Regional Planning', 3, 6, 'GCOE-CE'),
+
+    -- Electronics and Computer Engineering (GCOE-ECE)
+    ('ECEBASIC', 'Basic Electronics', 3, 6, 'GCOE-ECE'),
+    ('ECECOMM1', 'Communication Systems 1', 3, 6, 'GCOE-ECE'),
+    ('ECECOMM2', 'Communication Systems 2', 3, 6, 'GCOE-ECE'),
+    ('ECECIRCU', 'Digital and Analog Circuits', 4, 6, 'GCOE-ECE'),
+    ('ECEMICRO', 'Microprocessors and Embedded Systems', 4, 6, 'GCOE-ECE'),
+    ('ECENET', 'Network Engineering and Protocols', 3, 6, 'GCOE-ECE'),
+
+    -- Industrial Engineering (GCOE-IE)
+    ('IEOPER1', 'Operations Research 1', 3, 6, 'GCOE-IE'),
+    ('IEOPER2', 'Operations Research 2', 3, 6, 'GCOE-IE'),
+    ('IEPROD', 'Production Systems', 4, 6, 'GCOE-IE'),
+    ('IEHUMFAC', 'Human Factors and Ergonomics', 3, 6, 'GCOE-IE'),
+    ('IEQUALITY', 'Quality Engineering and Management', 3, 6, 'GCOE-IE'),
+    ('IESYSTEM', 'Systems Engineering and Design', 3, 6, 'GCOE-IE'),
+
+    -- Manufacturing Engineering and Management (GCOE-MEM)
+    ('MEMMAT', 'Materials Engineering', 4, 6, 'GCOE-MEM'),
+    ('MEMPROD', 'Production and Operations Management', 4, 6, 'GCOE-MEM'),
+    ('MEMAUTO', 'Automation and Robotics', 4, 6, 'GCOE-MEM'),
+    ('MEMCADD', 'Computer-Aided Design and Manufacturing', 4, 6, 'GCOE-MEM'),
+    ('MEMLEAN', 'Lean Manufacturing Systems', 3, 6, 'GCOE-MEM'),
+    ('MEMLOG', 'Logistics and Supply Chain Management', 3, 6, 'GCOE-MEM'),
+
+    -- Mechanical Engineering (GCOE-ME)
+    ('MEFLUID1', 'Fluid Mechanics 1', 3, 6, 'GCOE-ME'),
+    ('MEFLUID2', 'Fluid Mechanics 2', 3, 6, 'GCOE-ME'),
+    ('METHEMO', 'Thermodynamics', 3, 6, 'GCOE-ME'),
+    ('MEMATERIAL', 'Strength of Materials', 3, 6, 'GCOE-ME'),
+    ('MEMACHIN', 'Machine Design', 4, 6, 'GCOE-ME'),
+    ('MEMECHA', 'Mechanical Vibrations and Mechatronics', 4, 6, 'GCOE-ME');
+    
+INSERT INTO Courses (course_id, course_name, units, college_id, program_id)
+VALUES
+    -- Core Liberal Arts Courses (Common Across CLA Programs)
+    ('GENPHILO', 'General Philosophy', 3, 4, NULL),
+    ('ETHICS', 'Ethics and Moral Philosophy', 3, 4, NULL),
+    ('INTROHUM', 'Introduction to Humanities', 3, 4, NULL),
+    ('RESMETH', 'Research Methods in Social Sciences', 3, 4, NULL),
+    ('GLOBDEV', 'Globalization and Development', 3, 4, NULL),
+    ('WRITCOM', 'Written Communication and Rhetoric', 3, 4, NULL),
+    ('ORALCOM', 'Oral Communication and Public Speaking', 3, 4, NULL),
+
+    -- Behavioral Sciences, Major in Organizational and Social Systems Development (CLA-BSHS-OSSD)
+    ('BSHS101', 'Introduction to Behavioral Sciences', 3, 4, 'CLA-BSHS-OSSD'),
+    ('BSHS102', 'Theories of Social Systems', 3, 4, 'CLA-BSHS-OSSD'),
+    ('BSHS103', 'Group Dynamics and Organizational Behavior', 3, 4, 'CLA-BSHS-OSSD'),
+    ('BSHS104', 'Community Development and Engagement', 3, 4, 'CLA-BSHS-OSSD'),
+    ('BSHS105', 'Behavioral Research and Analysis', 3, 4, 'CLA-BSHS-OSSD'),
+
+    -- Development Studies (CLA-DS)
+    ('DS101', 'Introduction to Development Studies', 3, 4, 'CLA-DS'),
+    ('DS102', 'Political Economy of Development', 3, 4, 'CLA-DS'),
+    ('DS103', 'Sustainable Development Goals and Practices', 3, 4, 'CLA-DS'),
+    ('DS104', 'Development Policy and Advocacy', 3, 4, 'CLA-DS'),
+    ('DS105', 'Gender and Development', 3, 4, 'CLA-DS'),
+
+    -- History (CLA-HIS)
+    ('HIS101', 'Introduction to Philippine History', 3, 4, 'CLA-HIS'),
+    ('HIS102', 'World History: Ancient to Modern', 3, 4, 'CLA-HIS'),
+    ('HIS103', 'Historical Methods and Analysis', 3, 4, 'CLA-HIS'),
+    ('HIS104', 'Asian History and Cultures', 3, 4, 'CLA-HIS'),
+    ('HIS105', 'Contemporary Global Issues in Historical Context', 3, 4, 'CLA-HIS'),
+
+    -- Southeast Asian Studies (CLA-SEA)
+    ('SEA101', 'Introduction to Southeast Asian Studies', 3, 4, 'CLA-SEA'),
+    ('SEA102', 'History of Southeast Asia', 3, 4, 'CLA-SEA'),
+    ('SEA103', 'Politics and Governance in Southeast Asia', 3, 4, 'CLA-SEA'),
+    ('SEA104', 'Cultural Practices in Southeast Asia', 3, 4, 'CLA-SEA'),
+    ('SEA105', 'Economic Development in Southeast Asia', 3, 4, 'CLA-SEA'),
+
+    -- Literature, Major in Creative Writing (CLA-LIT-CW)
+    ('LITCW101', 'Introduction to Creative Writing', 3, 4, 'CLA-LIT-CW'),
+    ('LITCW102', 'Poetry Writing and Techniques', 3, 4, 'CLA-LIT-CW'),
+    ('LITCW103', 'Fiction Writing: Short Stories and Novels', 3, 4, 'CLA-LIT-CW'),
+    ('LITCW104', 'Playwriting and Screenwriting', 3, 4, 'CLA-LIT-CW'),
+    ('LITCW105', 'Creative Writing for Multimedia', 3, 4, 'CLA-LIT-CW'),
+
+    -- Political Science (CLA-PLS)
+    ('PLS101', 'Introduction to Political Science', 3, 4, 'CLA-PLS'),
+    ('PLS102', 'Comparative Politics and Systems', 3, 4, 'CLA-PLS'),
+    ('PLS103', 'Philippine Government and Constitution', 3, 4, 'CLA-PLS'),
+    ('PLS104', 'International Politics and Policy', 3, 4, 'CLA-PLS'),
+    ('PLS105', 'Political Research and Methodology', 3, 4, 'CLA-PLS'),
+
+    -- Communication Arts (CLA-CA)
+    ('CA101', 'Introduction to Communication Arts', 3, 4, 'CLA-CA'),
+    ('CA102', 'Media Writing and Storytelling', 3, 4, 'CLA-CA'),
+    ('CA103', 'Visual and Performing Arts', 3, 4, 'CLA-CA'),
+    ('CA104', 'Media and Society', 3, 4, 'CLA-CA'),
+    ('CA105', 'Communication Campaigns and Strategies', 3, 4, 'CLA-CA'),
+
+    -- Psychology (CLA-PSY)
+    ('PSY101', 'Introduction to Psychology', 3, 4, 'CLA-PSY'),
+    ('PSY102', 'Cognitive Psychology', 3, 4, 'CLA-PSY'),
+    ('PSY103', 'Social Psychology', 3, 4, 'CLA-PSY'),
+    ('PSY104', 'Developmental Psychology', 3, 4, 'CLA-PSY'),
+    ('PSY105', 'Clinical and Counseling Psychology', 3, 4, 'CLA-PSY');
+
+
+
+INSERT INTO Courses (course_id, course_name, units, college_id, program_id)
+VALUES
+    -- Core Law Courses (AB-LSSD Program)
+    ('LAW101', 'Introduction to Law and Legal Systems', 3, 3, 'AB-LSSD'),
+    ('LAW102', 'Legal Writing and Research', 3, 3, 'AB-LSSD'),
+    ('LAW103', 'Statutory Construction and Interpretation', 3, 3, 'AB-LSSD'),
+    ('LAW104', 'Ethics and the Legal Profession', 3, 3, 'AB-LSSD'),
+    ('LAW105', 'Constitutional Law 1', 3, 3, 'AB-LSSD'),
+    ('LAW106', 'Constitutional Law 2', 3, 3, 'AB-LSSD'),
+
+    -- Civil Law
+    ('CIVLAW1', 'Persons and Family Relations', 3, 3, 'AB-LSSD'),
+    ('CIVLAW2', 'Obligations and Contracts', 3, 3, 'AB-LSSD'),
+    ('CIVLAW3', 'Property Law', 3, 3, 'AB-LSSD'),
+    ('CIVLAW4', 'Wills and Succession', 3, 3, 'AB-LSSD'),
+    ('CIVLAW5', 'Special Contracts', 3, 3, 'AB-LSSD'),
+
+    -- Criminal Law
+    ('CRIMLAW1', 'Introduction to Criminal Law', 3, 3, 'AB-LSSD'),
+    ('CRIMLAW2', 'Criminal Procedure', 3, 3, 'AB-LSSD'),
+    ('CRIMLAW3', 'Crimes and Penalties', 3, 3, 'AB-LSSD'),
+
+    -- Labor Law
+    ('LABLAW1', 'Labor Standards and Relations', 3, 3, 'AB-LSSD'),
+    ('LABLAW2', 'Social Legislation', 3, 3, 'AB-LSSD'),
+
+    -- Taxation Law
+    ('TAXLAW1', 'General Principles of Taxation', 3, 3, 'AB-LSSD'),
+    ('TAXLAW2', 'Taxation on Income, Transfer, and Business', 3, 3, 'AB-LSSD'),
+
+    -- Commercial Law
+    ('COMLAW1', 'General Principles of Commercial Law', 3, 3, 'AB-LSSD'),
+    ('COMLAW2', 'Negotiable Instruments and Banking Laws', 3, 3, 'AB-LSSD'),
+    ('COMLAW3', 'Corporation Law', 3, 3, 'AB-LSSD'),
+    ('COMLAW4', 'Special Commercial Laws', 3, 3, 'AB-LSSD'),
+
+    -- Remedial Law
+    ('REMLAW1', 'Civil Procedure', 3, 3, 'AB-LSSD'),
+    ('REMLAW2', 'Special Proceedings', 3, 3, 'AB-LSSD'),
+    ('REMLAW3', 'Evidence', 3, 3, 'AB-LSSD'),
+
+    -- International Law
+    ('INTLAW1', 'Public International Law', 3, 3, 'AB-LSSD'),
+    ('INTLAW2', 'Private International Law', 3, 3, 'AB-LSSD'),
+
+    -- Administrative Law
+    ('ADMLAW1', 'Administrative Law and the Law on Public Officers', 3, 3, 'AB-LSSD'),
+
+    -- Legal Practice and Advocacy
+    ('LEGALPRAC', 'Legal Counseling and Advocacy', 3, 3, 'AB-LSSD'),
+    ('MOOTCOURT', 'Moot Court and Trial Techniques', 3, 3, 'AB-LSSD'),
+    ('BARREV', 'Bar Review', 3, 3, 'AB-LSSD');
+
+INSERT INTO Courses (course_id, course_name, units, college_id, program_id)
+VALUES
+    -- Core Education Courses (Common Across BAGCED Programs)
+    ('EDUC101', 'Introduction to Education', 3, 1, NULL),
+    ('EDUC102', 'Foundations of Curriculum Development', 3, 1, NULL),
+    ('EDUC103', 'Educational Psychology', 3, 1, NULL),
+    ('EDUC104', 'Assessment and Evaluation in Education', 3, 1, NULL),
+    ('EDUC105', 'Teaching Strategies and Classroom Management', 3, 1, NULL),
+    ('EDUC106', 'Technology Integration in Education', 3, 1, NULL),
+    ('EDUC107', 'Research in Education', 3, 1, NULL),
+    ('EDUC108', 'Educational Leadership and Policy', 3, 1, NULL),
+
+    -- Counseling and Educational Psychology (BAGCED-CEP)
+    ('CEP101', 'Introduction to Counseling', 3, 1, 'BAGCED-CEP'),
+    ('CEP102', 'Theories of Personality and Counseling', 3, 1, 'BAGCED-CEP'),
+    ('CEP103', 'Developmental Psychology in Education', 3, 1, 'BAGCED-CEP'),
+    ('CEP104', 'Group Counseling Techniques', 3, 1, 'BAGCED-CEP'),
+    ('CEP105', 'Guidance Program Development', 3, 1, 'BAGCED-CEP'),
+
+    -- Educational Leadership and Management (BAGCED-ELM)
+    ('ELM101', 'Introduction to Educational Leadership', 3, 1, 'BAGCED-ELM'),
+    ('ELM102', 'School Organization and Management', 3, 1, 'BAGCED-ELM'),
+    ('ELM103', 'Leadership in Diverse Educational Settings', 3, 1, 'BAGCED-ELM'),
+    ('ELM104', 'Education Policy and Governance', 3, 1, 'BAGCED-ELM'),
+    ('ELM105', 'Ethics in Educational Leadership', 3, 1, 'BAGCED-ELM'),
+
+    -- English and Applied Linguistics (BAGCED-EAL)
+    ('EAL101', 'Introduction to Linguistics', 3, 1, 'BAGCED-EAL'),
+    ('EAL102', 'Theories of Language Acquisition', 3, 1, 'BAGCED-EAL'),
+    ('EAL103', 'Language and Literacy in Education', 3, 1, 'BAGCED-EAL'),
+    ('EAL104', 'English for Specific Purposes', 3, 1, 'BAGCED-EAL'),
+    ('EAL105', 'Curriculum Design in English Language Teaching', 3, 1, 'BAGCED-EAL'),
+
+    -- Physical Education (BAGCED-PE)
+    ('PE101', 'Foundations of Physical Education', 3, 1, 'BAGCED-PE'),
+    ('PE102', 'Kinesiology and Biomechanics', 3, 1, 'BAGCED-PE'),
+    ('PE103', 'Sports and Recreation Management', 3, 1, 'BAGCED-PE'),
+    ('PE104', 'Fitness and Wellness Education', 3, 1, 'BAGCED-PE'),
+    ('PE105', 'Teaching Strategies in Physical Education', 3, 1, 'BAGCED-PE'),
+
+    -- Science Education (BAGCED-SE)
+    ('SE101', 'Introduction to Science Education', 3, 1, 'BAGCED-SE'),
+    ('SE102', 'Physics for Educators', 3, 1, 'BAGCED-SE'),
+    ('SE103', 'Chemistry for Educators', 3, 1, 'BAGCED-SE'),
+    ('SE104', 'Biology for Educators', 3, 1, 'BAGCED-SE'),
+    ('SE105', 'Environmental Science Education', 3, 1, 'BAGCED-SE'),
+
+    -- Offshore and Extension Programs (BAGCED-OEP)
+    ('OEP101', 'Global Trends in Education', 3, 1, 'BAGCED-OEP'),
+    ('OEP102', 'Intercultural Competence in Education', 3, 1, 'BAGCED-OEP'),
+    ('OEP103', 'International Comparative Education', 3, 1, 'BAGCED-OEP'),
+    ('OEP104', 'Project Management for Education', 3, 1, 'BAGCED-OEP'),
+    ('OEP105', 'Innovative Practices in Teaching and Learning', 3, 1, 'BAGCED-OEP'),
+
+    -- Center for Innovative Education Solutions (BAGCED-CIESOL)
+    ('CIESOL101', 'Educational Innovations and Technologies', 3, 1, 'BAGCED-CIESOL'),
+    ('CIESOL102', 'Design Thinking in Education', 3, 1, 'BAGCED-CIESOL'),
+    ('CIESOL103', 'Digital Learning Tools and Platforms', 3, 1, 'BAGCED-CIESOL'),
+    ('CIESOL104', 'Gamification in Education', 3, 1, 'BAGCED-CIESOL'),
+    ('CIESOL105', 'Implementing E-Learning Solutions', 3, 1, 'BAGCED-CIESOL');
+    
+INSERT INTO Courses (course_id, course_name, units, college_id, program_id)
+VALUES
+    -- Core Economics Courses (Common Across SOE Programs)
+    ('ECON101', 'Introduction to Microeconomics', 3, 8, NULL),
+    ('ECON102', 'Introduction to Macroeconomics', 3, 8, NULL),
+    ('ECON103', 'Mathematical Methods for Economics', 3, 8, NULL),
+    ('ECON104', 'Statistics for Economists', 3, 8, NULL),
+    ('ECON105', 'Econometrics 1', 3, 8, NULL),
+    ('ECON106', 'Econometrics 2', 3, 8, NULL),
+    ('ECON107', 'History of Economic Thought', 3, 8, NULL),
+    ('ECON108', 'Development Economics', 3, 8, NULL),
+    ('ECON109', 'Public Economics', 3, 8, NULL),
+    ('ECON110', 'International Economics', 3, 8, NULL),
+    ('ECON111', 'Environmental Economics', 3, 8, NULL),
+    ('ECON112', 'Economic Research Methods', 3, 8, NULL),
+
+    -- Bachelor of Science in Applied Economics major in Industrial Economics (SOE-BS-AEI)
+    ('AEI101', 'Principles of Industrial Organization', 3, 8, 'SOE-BS-AEI'),
+    ('AEI102', 'Game Theory in Industrial Economics', 3, 8, 'SOE-BS-AEI'),
+    ('AEI103', 'Economic Regulation and Policy', 3, 8, 'SOE-BS-AEI'),
+    ('AEI104', 'Innovation and Technology in Economics', 3, 8, 'SOE-BS-AEI'),
+
+    -- Bachelor of Science in Applied Economics major in Financial Economics (SOE-BS-AEF)
+    ('AEF101', 'Financial Markets and Institutions', 3, 8, 'SOE-BS-AEF'),
+    ('AEF102', 'Behavioral Economics in Finance', 3, 8, 'SOE-BS-AEF'),
+    ('AEF103', 'Corporate Finance and Valuation', 3, 8, 'SOE-BS-AEF'),
+    ('AEF104', 'Risk Management and Derivatives', 3, 8, 'SOE-BS-AEF'),
+
+    -- Bachelor of Arts major in Economics (SOE-AB-ECM)
+    ('ECM101', 'Philosophy of Economics', 3, 8, 'SOE-AB-ECM'),
+    ('ECM102', 'Cultural and Political Economics', 3, 8, 'SOE-AB-ECM'),
+    ('ECM103', 'Economic Anthropology', 3, 8, 'SOE-AB-ECM'),
+    ('ECM104', 'Comparative Economic Systems', 3, 8, 'SOE-AB-ECM'),
+
+    -- Elective Courses for SOE
+    ('ELEC101', 'Health Economics', 3, 8, NULL),
+    ('ELEC102', 'Labor Economics', 3, 8, NULL),
+    ('ELEC103', 'Urban and Regional Economics', 3, 8, NULL),
+    ('ELEC104', 'Energy Economics', 3, 8, NULL),
+    ('ELEC105', 'Political Economy', 3, 8, NULL);
+
 
 CREATE TABLE Classes (
     class_id INT NOT NULL,
@@ -222,12 +694,15 @@ CREATE TABLE Classes (
     college_id INT NOT NULL,
     room_number VARCHAR(20),
     max_capacity INT,
+    term VARCHAR(15) NOT NULL CHECK (term IN ('First Term', 'Second Term', 'Third Term')),
+    school_year VARCHAR(10) NOT NULL,
     CONSTRAINT classes_pk PRIMARY KEY (class_id),
     CONSTRAINT classes_fk_course FOREIGN KEY (course_id) REFERENCES Courses(course_id),
     CONSTRAINT classes_fk_program FOREIGN KEY (program_id) REFERENCES Programs(program_id),
     CONSTRAINT classes_fk_instructor FOREIGN KEY (instructor_id) REFERENCES Instructor(inst_id),
     CONSTRAINT classes_fk_college FOREIGN KEY (college_id) REFERENCES Colleges(college_id)
 );
+
 
 CREATE TABLE Schedules (
     schedule_id INT AUTO_INCREMENT,
@@ -250,6 +725,7 @@ CREATE TABLE Prerequisites (
 
 INSERT INTO Prerequisites (course_id, prerequisite_id)
 VALUES
+    -- Existing prerequisites
     ('CCPROG2', 'CCPROG1'),    -- CCPROG2 requires CCPROG1
     ('CCPROG3', 'CCPROG2'),    -- CCPROG3 requires CCPROG2
     ('CCDSTRU', 'CCPROG1'),    -- CCDSTRU requires CCPROG1
@@ -265,11 +741,356 @@ VALUES
     ('CCAPDEV', 'CCINFOM'),    -- CCAPDEV requires CCINFOM
     ('CSSWENG', 'CCAPDEV'),    -- CSSWENG requires CCAPDEV
     ('STADVDB', 'CCINFOM'),    -- STADVDB requires CCINFOM
-    ('STALGC',  'CSALGCM'),     -- STALGC requires CSALGCM
+    ('STALGC',  'CSALGCM'),    -- STALGC requires CSALGCM
     ('STHCUIX', 'CSSWENG'),    -- STHCUIX requires CSSWENG
     ('STINTSY', 'CSINTSY'),    -- STINTSY requires CSINTSY
     ('STDISCM', 'CSOPESY'),    -- STDISCM requires CSOPESY
-    ('STMETRE', 'STALGC');   -- STMETRE requires STALGC
+    ('STMETRE', 'STALGC'),     -- STMETRE requires STALGC
+    ('BASSTAT', 'BASMATH'),    -- BASSTAT requires BASMATH
+    ('CSMODEL', 'CSMATH1'),    -- CSMODEL requires CSMATH1 (Differential Calculus)
+    ('CSMATH2', 'CSMATH1'),    -- CSMATH2 requires CSMATH1 (Differential Calculus)
+    ('CSNETWK', 'CSARCH1'),    -- CSNETWK requires CSARCH1
+    ('CEETRN2', 'CEETRN1'),    -- CEETRN2 requires CEETRN1
+    ('CEETRN3', 'CEETRN2'),    -- CEETRN3 requires CEETRN2
+    ('CEDISP2', 'CEDISP1'),    -- CEDISP2 requires CEDISP1 (Digital Signal Processing 1)
+    ('CEMICRO', 'CEETRN2'),    -- CEMICRO requires CEETRN2
+    ('CECNTRL', 'CEMICRO'),    -- CECNTRL requires CEMICRO
+    ('CEPARCO', 'CECNTRL'),    -- CEPARCO requires CECNTRL
+    ('CERESME', 'CEPARCO'),    -- CERESME requires CEPARCO
+    ('NSSECU2', 'NSSECU1'),    -- NSSECU2 requires NSSECU1
+    ('NSSECU3', 'NSSECU2'),    -- NSSECU3 requires NSSECU2
+    ('NSEMBED', 'NSETRON'),    -- NSEMBED requires NSETRON
+    ('NSDSYST', 'NSCOM02'),    -- NSDSYST requires NSCOM02
+    ('NSRESME', 'NSDSYST'),    -- NSRESME requires NSDSYST
+    ('ITISHCI', 'ITISORG'),    -- ITISHCI requires ITISORG
+    ('ITISDEV', 'ITISHCI'),    -- ITISDEV requires ITISHCI
+    ('ITISSES', 'ITISDEV'),    -- ITISSES requires ITISDEV
+    ('ITISPRJ', 'ITISSES'),    -- ITISPRJ requires ITISSES
+    ('ISTREND', 'ITISPRJ'),    -- ISTREND requires ITISPRJ
+    ('ISANDE1', 'ISINFOM'),    -- ISANDE1 requires ISINFOM
+    ('ISANDE2', 'ISANDE1'),    -- ISANDE2 requires ISANDE1
+    ('ISSYSQA', 'ISANDE2'),    -- ISSYSQA requires ISANDE2
+    ('ISENTAR', 'ISSYSAD'),    -- ISENTAR requires ISSYSAD
+    ('ISRESME', 'ISSYSQA'),    -- ISRESME requires ISSYSQA
+    ('ISPRENL', 'ISINFOM'),    -- ISPRENL requires ISINFOM
+    ('ISSTRMA', 'ISENTAR');    -- ISSTRMA requires ISENTAR
+
+INSERT INTO Prerequisites (course_id, prerequisite_id)
+VALUES
+    -- Core Business Courses (Common Across COB Programs)
+    ('BUSTAT', 'BUSMATH'), -- Business Statistics requires Business Mathematics
+    ('BFIN101', 'BUSMATH'), -- Introduction to Financial Management requires Business Mathematics
+    ('BRES101', 'BECON01'), -- Business Research Methods requires Introduction to Microeconomics
+    ('BETHICS', 'BMGT101'), -- Business Ethics requires Principles of Management
+
+    -- Bachelor of Science in Accountancy (COB-ACC)
+    ('ACC102', 'ACC101'), -- Intermediate Accounting 2 requires Intermediate Accounting 1
+    ('ACC103', 'ACC102'), -- Advanced Accounting requires Intermediate Accounting 2
+    ('ACC105', 'ACC104'), -- Auditing and Assurance 1 requires Financial Accounting and Reporting
+
+    -- Bachelor of Science in Advertising Management (COB-ADV)
+    ('ADV102', 'ADV101'), -- Creative Strategies in Advertising requires Introduction to Advertising
+    ('ADV105', 'ADV103'), -- Advertising Campaign Management requires Advertising Media Planning
+
+    -- Bachelor of Science in Applied Corporate Management (COB-ACM)
+    ('ACM102', 'ACM101'), -- Corporate Governance and Risk Management requires Introduction to Corporate Management
+    ('ACM104', 'BMGT101'), -- Operations and Supply Chain Management requires Principles of Management
+
+    -- Bachelor of Science in Business Management (COB-BM)
+    ('BM102', 'BM101'), -- Strategic Management requires Business Organization and Environment
+    ('BM104', 'BM103'), -- Project Management requires Operations Management
+
+    -- Bachelor of Science in Entrepreneurship (COB-ENT)
+    ('ENT102', 'ENT101'), -- Business Opportunity Identification requires Introduction to Entrepreneurship
+    ('ENT105', 'ENT101'), -- Entrepreneurial Finance requires Introduction to Entrepreneurship
+
+    -- Bachelor of Science in Interdisciplinary Business Studies (COB-IBS)
+    ('IBS102', 'IBS101'), -- Cultural Diversity in Business requires Interdisciplinary Perspectives in Business
+    ('IBS104', 'IBS103'), -- Corporate Social Innovation requires Global Business Strategies
+
+    -- Bachelor of Science in Legal Management (COB-LM)
+    ('LM102', 'LM101'), -- Business and Commercial Laws requires Introduction to Legal Management
+    ('LM103', 'LM102'), -- Contracts and Obligations requires Business and Commercial Laws
+
+    -- Bachelor of Science in Management of Financial Institutions (COB-MFI)
+    ('MFI103', 'MFI101'), -- Financial Markets and Instruments requires Introduction to Financial Institutions
+    ('MFI104', 'MFI102'), -- Banking Operations and Management requires Risk Management in Financial Institutions
+
+    -- Bachelor of Science in Marketing Management (COB-MM)
+    ('MM102', 'BMKT101'), -- Integrated Marketing Communications requires Principles of Marketing
+    ('MM104', 'MM103'), -- Brand Management requires Marketing Analytics
+
+    -- Bachelor of Science in Management Accounting with Business Analytics (COB-MABA)
+    ('MABA102', 'MABA101'), -- Cost Accounting and Control requires Introduction to Management Accounting
+    ('MABA104', 'MABA103'), -- Business Analytics for Accounting requires Management Accounting for Decision Making
+
+    -- Bachelor of Science in Management Accounting (COB-MA)
+    ('MA102', 'MA101'), -- Cost Accounting and Budgeting requires Principles of Management Accounting
+    ('MA104', 'MA103'); -- Strategic Management Accounting requires Financial Management for Accountants
+
+INSERT INTO Prerequisites (course_id, prerequisite_id)
+VALUES
+    -- Core Science Courses
+    ('COSCHEM2', 'COSCHEM1'), -- General Chemistry 2 requires General Chemistry 1
+    ('COSPHYS2', 'COSPHYS1'), -- Physics 2 requires Physics 1
+    ('COSMATH2', 'COSMATH1'), -- Calculus 2 requires Calculus 1
+    ('COSRES2', 'COSRES1'),   -- Advanced Research Methods requires Introduction to Research in Science
+    ('COSBIO2', 'COSBIO1'),   -- General Biology 2 requires General Biology 1
+
+    -- Bachelor of Science in Biochemistry (COS-BIOCHEM)
+    ('BIOCHEM2', 'BIOCHEM1'), -- Metabolic Biochemistry requires Introduction to Biochemistry
+    ('BIOCHEM3', 'BIOCHEM2'), -- Molecular Biology and Biochemistry requires Metabolic Biochemistry
+    ('BIOCHEM4', 'BIOCHEM1'), -- Biochemistry Laboratory Techniques requires Introduction to Biochemistry
+    ('BIOCHEM5', 'BIOCHEM2'), -- Enzymology requires Metabolic Biochemistry
+    ('BIOCHEM7', 'BIOCHEM5'), -- Advanced Biochemistry requires Enzymology
+
+    -- BS in Biology major in Medical Biology (COS-MBIO)
+    ('MBIO2', 'COSBIO1'),     -- Human Anatomy and Physiology requires General Biology 1
+    ('MBIO3', 'MBIO2'),       -- Immunology requires Human Anatomy and Physiology
+    ('MBIO4', 'MBIO3'),       -- Medical Microbiology requires Immunology
+    ('MBIO5', 'MBIO2'),       -- Pathophysiology requires Human Anatomy and Physiology
+    ('MBIO6', 'BIOCHEM1'),    -- Clinical Biochemistry requires Introduction to Biochemistry
+
+    -- BS in Biology major in Molecular Biology and Biotechnology (COS-MOLBIO)
+    ('MOLBIO2', 'COSBIO1'),   -- Molecular Genetics requires General Biology 1
+    ('MOLBIO3', 'MOLBIO2'),   -- Recombinant DNA Technology requires Molecular Genetics
+    ('MOLBIO4', 'MOLBIO3'),   -- Protein Engineering requires Recombinant DNA Technology
+    ('MOLBIO6', 'MOLBIO2'),   -- Bioinformatics requires Molecular Genetics
+
+    -- BS in Biology major in Systematics and Ecology (COS-SYSBIO)
+    ('SYSBIO2', 'COSBIO1'),   -- Ecology and Environmental Science requires General Biology 1
+    ('SYSBIO3', 'SYSBIO2'),   -- Biodiversity Conservation requires Ecology and Environmental Science
+    ('SYSBIO4', 'SYSBIO3'),   -- Marine Biology requires Biodiversity Conservation
+    ('SYSBIO5', 'SYSBIO2'),   -- Freshwater Ecology requires Ecology and Environmental Science
+    ('SYSBIO6', 'SYSBIO2'),   -- Field Methods in Ecology requires Ecology and Environmental Science
+
+    -- BS in Chemistry (COS-CHEM)
+    ('CHEM2', 'COSCHEM1'),    -- Organic Chemistry 1 requires General Chemistry 1
+    ('CHEM3', 'CHEM2'),       -- Organic Chemistry 2 requires Organic Chemistry 1
+    ('CHEM4', 'COSMATH1'),    -- Physical Chemistry requires Calculus 1
+    ('CHEM5', 'COSCHEM1'),    -- Inorganic Chemistry requires General Chemistry 1
+    ('CHEM6', 'CHEM4'),       -- Instrumental Methods of Analysis requires Physical Chemistry
+
+    -- BS in Chemistry major in Food Science (COS-CHEMFS)
+    ('CHEMFS1', 'COSCHEM1'),  -- Food Chemistry requires General Chemistry 1
+    ('CHEMFS2', 'CHEMFS1'),   -- Food Microbiology requires Food Chemistry
+    ('CHEMFS3', 'CHEMFS1'),   -- Food Analysis requires Food Chemistry
+    ('CHEMFS4', 'CHEMFS3'),   -- Food Processing Technology requires Food Analysis
+
+    -- BS in Human Biology (COS-HUMBIO)
+    ('HUMBIO2', 'COSBIO1'),   -- Advanced Human Physiology requires General Biology 1
+    ('HUMBIO3', 'HUMBIO2'),   -- Genetics and Human Disease requires Advanced Human Physiology
+    ('HUMBIO4', 'HUMBIO2'),   -- Human Reproductive Biology requires Advanced Human Physiology
+
+    -- BS in Mathematics with specialization in Business Applications (COS-MATHBA)
+    ('MATHBA2', 'COSMATH1'),  -- Operations Research requires Calculus 1
+    ('MATHBA3', 'MATHBA2'),   -- Quantitative Methods for Decision Making requires Operations Research
+
+    -- BS in Mathematics with specialization in Computer Applications (COS-MATHCA)
+    ('MATHCA2', 'COSMATH1'),  -- Numerical Analysis requires Calculus 1
+    ('MATHCA3', 'MATHCA2'),   -- Algorithms and Mathematical Optimization requires Numerical Analysis
+
+    -- BS in Statistics Major in Actuarial Science (COS-STAT)
+    ('STAT2', 'STAT1'),       -- Statistical Inference requires Probability Theory
+    ('STAT3', 'STAT2'),       -- Actuarial Mathematics requires Statistical Inference
+    ('STAT4', 'STAT3'),       -- Risk Theory requires Actuarial Mathematics
+
+    -- BS in Physics with specialization in Medical Instrumentation (COS-PHYSMED)
+    ('PHYSMED2', 'COSPHYS1'), -- Biomedical Instrumentation requires Physics 1
+    ('PHYSMED3', 'COSPHYS2'), -- Radiation Physics and Dosimetry requires Physics 2
+    ('PHYSMED4', 'PHYSMED2'), -- Medical Imaging requires Biomedical Instrumentation
+
+    -- Bachelor of Science in Animal Biology (COS-ANBIO)
+    ('ANBIO2', 'COSBIO1'),    -- Animal Physiology requires General Biology 1
+    ('ANBIO3', 'COSBIO1'),    -- Animal Genetics requires General Biology 1
+    ('ANBIO4', 'ANBIO2');     -- Wildlife Biology requires Animal Physiology
+    
+INSERT INTO Prerequisites (course_id, prerequisite_id)
+VALUES
+    -- Core Engineering Courses
+    ('ENGCAL2', 'ENGCAL1'), -- Engineering Calculus 2 requires Engineering Calculus 1
+    ('ENGPHY2', 'ENGPHY1'), -- Engineering Physics 2 requires Engineering Physics 1
+    ('ENGMATH', 'ENGCAL1'), -- Engineering Mathematics requires Engineering Calculus 1
+    ('ENGMECH', 'ENGPHY1'), -- Engineering Mechanics requires Engineering Physics 1
+    ('ENGECON', 'ENGSTAT'), -- Engineering Economics requires Engineering Statistics
+
+    -- Chemical Engineering (GCOE-CHE)
+    ('CHEMENG1', 'ENGCAL2'), -- Chemical Engineering Thermodynamics requires Engineering Calculus 2
+    ('CHEMENG2', 'CHEMENG1'), -- Transport Phenomena requires Chemical Engineering Thermodynamics
+    ('CHEMREA1', 'CHEMENG2'), -- Chemical Reaction Engineering requires Transport Phenomena
+    ('CHEMPROD', 'CHEMAT1'), -- Chemical Process Industries requires Material and Energy Balances
+    ('CHEMPLANT', 'CHEMREA1'), -- Plant Design and Economics requires Chemical Reaction Engineering
+
+    -- Civil Engineering (GCOE-CE)
+    ('CESTRUC1', 'ENGMECH'), -- Structural Analysis 1 requires Engineering Mechanics
+    ('CESTRUC2', 'CESTRUC1'), -- Structural Analysis 2 requires Structural Analysis 1
+    ('CESOIL', 'ENGPHY2'), -- Soil Mechanics requires Engineering Physics 2
+    ('CEHYDRO', 'ENGPHY2'), -- Hydraulics and Hydrology requires Engineering Physics 2
+    ('CECONST', 'CESTRUC1'), -- Construction Methods and Project Management requires Structural Analysis 1
+    ('CEPLANNING', 'ENGECON'), -- Urban and Regional Planning requires Engineering Economics
+
+    -- Electronics and Computer Engineering (GCOE-ECE)
+    ('ECECOMM1', 'ECEBASIC'), -- Communication Systems 1 requires Basic Electronics
+    ('ECECOMM2', 'ECECOMM1'), -- Communication Systems 2 requires Communication Systems 1
+    ('ECECIRCU', 'ECEBASIC'), -- Digital and Analog Circuits requires Basic Electronics
+    ('ECEMICRO', 'ECECIRCU'), -- Microprocessors and Embedded Systems requires Digital and Analog Circuits
+    ('ECENET', 'ECECIRCU'), -- Network Engineering and Protocols requires Digital and Analog Circuits
+
+    -- Industrial Engineering (GCOE-IE)
+    ('IEOPER1', 'ENGSTAT'), -- Operations Research 1 requires Engineering Statistics
+    ('IEOPER2', 'IEOPER1'), -- Operations Research 2 requires Operations Research 1
+    ('IEPROD', 'ENGMECH'), -- Production Systems requires Engineering Mechanics
+    ('IEHUMFAC', 'ENGMATH'), -- Human Factors and Ergonomics requires Engineering Mathematics
+    ('IEQUALITY', 'ENGSTAT'), -- Quality Engineering and Management requires Engineering Statistics
+    ('IESYSTEM', 'IEOPER1'), -- Systems Engineering and Design requires Operations Research 1
+
+    -- Manufacturing Engineering and Management (GCOE-MEM)
+    ('MEMMAT', 'ENGPHY1'), -- Materials Engineering requires Engineering Physics 1
+    ('MEMPROD', 'MEMMAT'), -- Production and Operations Management requires Materials Engineering
+    ('MEMAUTO', 'MEMMAT'), -- Automation and Robotics requires Materials Engineering
+    ('MEMCADD', 'ENGDRAW'), -- Computer-Aided Design and Manufacturing requires Engineering Drawing and CAD
+    ('MEMLEAN', 'ENGECON'), -- Lean Manufacturing Systems requires Engineering Economics
+    ('MEMLOG', 'MEMPROD'), -- Logistics and Supply Chain Management requires Production and Operations Management
+
+    -- Mechanical Engineering (GCOE-ME)
+    ('MEFLUID2', 'MEFLUID1'), -- Fluid Mechanics 2 requires Fluid Mechanics 1
+    ('METHEMO', 'ENGCAL2'), -- Thermodynamics requires Engineering Calculus 2
+    ('MEMATERIAL', 'ENGMECH'), -- Strength of Materials requires Engineering Mechanics
+    ('MEMACHIN', 'MEMATERIAL'), -- Machine Design requires Strength of Materials
+    ('MEMECHA', 'MEMACHIN'); -- Mechanical Vibrations and Mechatronics requires Machine Design
+    
+INSERT INTO Prerequisites (course_id, prerequisite_id)
+VALUES
+    -- Core Law Courses
+    ('LAW102', 'LAW101'),    -- Legal Writing and Research requires Introduction to Law and Legal Systems
+    ('LAW103', 'LAW102'),    -- Statutory Construction and Interpretation requires Legal Writing and Research
+    ('LAW105', 'LAW101'),    -- Constitutional Law 1 requires Introduction to Law and Legal Systems
+    ('LAW106', 'LAW105'),    -- Constitutional Law 2 requires Constitutional Law 1
+
+    -- Civil Law
+    ('CIVLAW2', 'CIVLAW1'),  -- Obligations and Contracts requires Persons and Family Relations
+    ('CIVLAW3', 'CIVLAW2'),  -- Property Law requires Obligations and Contracts
+    ('CIVLAW4', 'CIVLAW2'),  -- Wills and Succession requires Obligations and Contracts
+    ('CIVLAW5', 'CIVLAW3'),  -- Special Contracts requires Property Law
+
+    -- Criminal Law
+    ('CRIMLAW2', 'CRIMLAW1'),  -- Criminal Procedure requires Introduction to Criminal Law
+    ('CRIMLAW3', 'CRIMLAW2'),  -- Crimes and Penalties requires Criminal Procedure
+
+    -- Labor Law
+    ('LABLAW2', 'LABLAW1'),  -- Social Legislation requires Labor Standards and Relations
+
+    -- Taxation Law
+    ('TAXLAW2', 'TAXLAW1'),  -- Taxation on Income, Transfer, and Business requires General Principles of Taxation
+
+    -- Commercial Law
+    ('COMLAW2', 'COMLAW1'),  -- Negotiable Instruments and Banking Laws requires General Principles of Commercial Law
+    ('COMLAW3', 'COMLAW1'),  -- Corporation Law requires General Principles of Commercial Law
+    ('COMLAW4', 'COMLAW3'),  -- Special Commercial Laws requires Corporation Law
+
+    -- Remedial Law
+    ('REMLAW2', 'REMLAW1'),  -- Special Proceedings requires Civil Procedure
+    ('REMLAW3', 'REMLAW1'),  -- Evidence requires Civil Procedure
+
+    -- International Law
+    ('INTLAW2', 'INTLAW1'),  -- Private International Law requires Public International Law
+
+    -- Administrative Law
+    ('ADMLAW1', 'LAW101'),  -- Administrative Law requires Introduction to Law and Legal Systems
+
+    -- Legal Practice and Advocacy
+    ('MOOTCOURT', 'LAW102'),  -- Moot Court and Trial Techniques requires Legal Writing and Research
+    ('LEGALPRAC', 'LAW104'),  -- Legal Counseling and Advocacy requires Ethics and the Legal Profession
+    ('BARREV', 'LAW106');    -- Bar Review requires Constitutional Law 2
+
+INSERT INTO Prerequisites (course_id, prerequisite_id)
+VALUES
+    -- Core Education Courses
+    ('EDUC102', 'EDUC101'),  -- Foundations of Curriculum Development requires Introduction to Education
+    ('EDUC103', 'EDUC101'),  -- Educational Psychology requires Introduction to Education
+    ('EDUC104', 'EDUC103'),  -- Assessment and Evaluation requires Educational Psychology
+    ('EDUC105', 'EDUC102'),  -- Teaching Strategies requires Foundations of Curriculum Development
+    ('EDUC107', 'EDUC104'),  -- Research in Education requires Assessment and Evaluation
+    ('EDUC108', 'EDUC105'),  -- Educational Leadership and Policy requires Teaching Strategies
+
+    -- Counseling and Educational Psychology (BAGCED-CEP)
+    ('CEP102', 'CEP101'),    -- Theories of Personality requires Introduction to Counseling
+    ('CEP103', 'CEP101'),    -- Developmental Psychology requires Introduction to Counseling
+    ('CEP104', 'CEP103'),    -- Group Counseling Techniques requires Developmental Psychology
+    ('CEP105', 'CEP104'),    -- Guidance Program Development requires Group Counseling Techniques
+
+    -- Educational Leadership and Management (BAGCED-ELM)
+    ('ELM102', 'ELM101'),    -- School Organization requires Introduction to Educational Leadership
+    ('ELM103', 'ELM101'),    -- Leadership in Diverse Settings requires Introduction to Educational Leadership
+    ('ELM104', 'ELM102'),    -- Education Policy and Governance requires School Organization and Management
+    ('ELM105', 'ELM103'),    -- Ethics in Leadership requires Leadership in Diverse Educational Settings
+
+    -- English and Applied Linguistics (BAGCED-EAL)
+    ('EAL102', 'EAL101'),    -- Theories of Language Acquisition requires Introduction to Linguistics
+    ('EAL103', 'EAL102'),    -- Language and Literacy requires Theories of Language Acquisition
+    ('EAL104', 'EAL103'),    -- English for Specific Purposes requires Language and Literacy
+    ('EAL105', 'EAL103'),    -- Curriculum Design requires Language and Literacy
+
+    -- Physical Education (BAGCED-PE)
+    ('PE102', 'PE101'),      -- Kinesiology requires Foundations of Physical Education
+    ('PE103', 'PE101'),      -- Sports and Recreation requires Foundations of Physical Education
+    ('PE104', 'PE102'),      -- Fitness and Wellness requires Kinesiology
+    ('PE105', 'PE103'),      -- Teaching Strategies in PE requires Sports and Recreation Management
+
+    -- Science Education (BAGCED-SE)
+    ('SE102', 'SE101'),      -- Physics for Educators requires Introduction to Science Education
+    ('SE103', 'SE101'),      -- Chemistry for Educators requires Introduction to Science Education
+    ('SE104', 'SE101'),      -- Biology for Educators requires Introduction to Science Education
+    ('SE105', 'SE101'),      -- Environmental Science requires Introduction to Science Education
+
+    -- Offshore and Extension Programs (BAGCED-OEP)
+    ('OEP102', 'OEP101'),    -- Intercultural Competence requires Global Trends in Education
+    ('OEP103', 'OEP101'),    -- International Comparative Education requires Global Trends in Education
+    ('OEP104', 'OEP103'),    -- Project Management requires International Comparative Education
+    ('OEP105', 'OEP104'),    -- Innovative Practices requires Project Management
+
+    -- Center for Innovative Education Solutions (BAGCED-CIESOL)
+    ('CIESOL102', 'CIESOL101'),  -- Design Thinking requires Educational Innovations
+    ('CIESOL103', 'CIESOL102'),  -- Digital Learning Tools requires Design Thinking
+    ('CIESOL104', 'CIESOL103'),  -- Gamification requires Digital Learning Tools
+    ('CIESOL105', 'CIESOL104');  -- E-Learning Solutions requires Gamification
+    
+INSERT INTO Prerequisites (course_id, prerequisite_id)
+VALUES
+    -- Core Economics Courses
+    ('ECON103', 'ECON101'),  -- Mathematical Methods for Economics requires Introduction to Microeconomics
+    ('ECON104', 'ECON101'),  -- Statistics for Economists requires Introduction to Microeconomics
+    ('ECON105', 'ECON104'),  -- Econometrics 1 requires Statistics for Economists
+    ('ECON106', 'ECON105'),  -- Econometrics 2 requires Econometrics 1
+    ('ECON107', 'ECON102'),  -- History of Economic Thought requires Introduction to Macroeconomics
+    ('ECON108', 'ECON101'),  -- Development Economics requires Introduction to Microeconomics
+    ('ECON109', 'ECON101'),  -- Public Economics requires Introduction to Microeconomics
+    ('ECON110', 'ECON102'),  -- International Economics requires Introduction to Macroeconomics
+    ('ECON111', 'ECON101'),  -- Environmental Economics requires Introduction to Microeconomics
+    ('ECON112', 'ECON105'),  -- Economic Research Methods requires Econometrics 1
+
+    -- Bachelor of Science in Applied Economics major in Industrial Economics (SOE-BS-AEI)
+    ('AEI102', 'AEI101'),    -- Game Theory in Industrial Economics requires Principles of Industrial Organization
+    ('AEI103', 'AEI102'),    -- Economic Regulation and Policy requires Game Theory in Industrial Economics
+    ('AEI104', 'AEI103'),    -- Innovation and Technology in Economics requires Economic Regulation and Policy
+
+    -- Bachelor of Science in Applied Economics major in Financial Economics (SOE-BS-AEF)
+    ('AEF102', 'AEF101'),    -- Behavioral Economics in Finance requires Financial Markets and Institutions
+    ('AEF103', 'AEF101'),    -- Corporate Finance and Valuation requires Financial Markets and Institutions
+    ('AEF104', 'AEF103'),    -- Risk Management and Derivatives requires Corporate Finance and Valuation
+
+    -- Bachelor of Arts major in Economics (SOE-AB-ECM)
+    ('ECM102', 'ECM101'),    -- Cultural and Political Economics requires Philosophy of Economics
+    ('ECM103', 'ECM102'),    -- Economic Anthropology requires Cultural and Political Economics
+    ('ECM104', 'ECM103'),    -- Comparative Economic Systems requires Economic Anthropology
+
+    -- Elective Courses
+    ('ELEC101', 'ECON101'),  -- Health Economics requires Introduction to Microeconomics
+    ('ELEC102', 'ECON101'),  -- Labor Economics requires Introduction to Microeconomics
+    ('ELEC103', 'ECON101'),  -- Urban and Regional Economics requires Introduction to Microeconomics
+    ('ELEC104', 'ECON101'),  -- Energy Economics requires Introduction to Microeconomics
+    ('ELEC105', 'ECON102');  -- Political Economy requires Introduction to Macroeconomics
+
 
 CREATE TABLE Students (
     student_id INT NOT NULL,
@@ -301,8 +1122,7 @@ CREATE TABLE AcademicHistory (
 CREATE TABLE Grades (
     grade_id INT AUTO_INCREMENT,
     academic_history_id VARCHAR(50), -- Link to AcademicHistory table
-    grade DECIMAL(2, 1) CHECK (grade IN (0.0, 1.5, 2.0, 2.5, 3.0, 3.5, 4.0)),
-    is_locked BOOLEAN DEFAULT FALSE, -- Column to lock grades after submission
+    grade DECIMAL(2, 1) CHECK (grade IN (0.0, 1.0, 1.5, 2.0, 2.5, 3.0, 3.5, 4.0)),
     PRIMARY KEY (grade_id),
     FOREIGN KEY (academic_history_id) REFERENCES AcademicHistory(academic_history_id)
 );
@@ -578,88 +1398,83 @@ VALUES
     (100000248, 'Cole', 'Hughes', 1, '09137845876', 'cole_hughes@dlsu.edu.ph', 'Bu2yYd'),
     (100000249, 'Claire', 'Davidson', 1, '09171234677', 'claire_davidson@dlsu.edu.ph', 'XdqLJ3'),
     (100000250, 'Jack', 'Mason', 1, '09137845878', 'jack_mason@dlsu.edu.ph', 'Xy2jkl');
-    
+
 -- Classes for CCPROG1
-INSERT INTO Classes (class_id, course_id, program_id, instructor_id, college_id, room_number, max_capacity)
+INSERT INTO Classes (class_id, course_id, program_id, instructor_id, college_id, room_number, max_capacity, term, school_year)
 VALUES
-    (1001, 'CCPROG1', 'CCS-ST', 100000201, 2, 'G201', 30),
-    (1002, 'CCPROG1', 'CCS-ST', 100000202, 2, 'G202', 30),
-    (1003, 'CCPROG1', 'CCS-NIS', 100000203, 2, 'G203', 30),
-    (1004, 'CCPROG1', 'CCS-IT', 100000204, 2, 'G204', 30);
+    (1001, 'CCPROG1', 'CCS-ST', 100000201, 2, 'G201', 30, 'First Term', '2023-2024'),
+    (1002, 'CCPROG1', 'CCS-ST', 100000202, 2, 'G202', 30, 'First Term', '2023-2024'),
+    (1003, 'CCPROG1', 'CCS-NIS', 100000203, 2, 'G203', 30, 'First Term', '2023-2024'),
+    (1004, 'CCPROG1', 'CCS-IT', 100000204, 2, 'G204', 30, 'First Term', '2023-2024');
 
 -- Classes for CCPROG2
-INSERT INTO Classes (class_id, course_id, program_id, instructor_id, college_id, room_number, max_capacity)
+INSERT INTO Classes (class_id, course_id, program_id, instructor_id, college_id, room_number, max_capacity, term, school_year)
 VALUES
-    (2001, 'CCPROG2', 'CCS-ST', 100000205, 2, 'G205', 30),
-    (2002, 'CCPROG2', 'CCS-ST', 100000206, 2, 'G206', 30),
-    (2003, 'CCPROG2', 'CCS-NIS', 100000207, 2, 'G207', 30),
-    (2004, 'CCPROG2', 'CCS-IT', 100000208, 2, 'G208', 30);
+    (2001, 'CCPROG2', 'CCS-ST', 100000205, 2, 'G205', 30, 'Second Term', '2023-2024'),
+    (2002, 'CCPROG2', 'CCS-ST', 100000206, 2, 'G206', 30, 'Second Term', '2023-2024'),
+    (2003, 'CCPROG2', 'CCS-NIS', 100000207, 2, 'G207', 30, 'Second Term', '2023-2024'),
+    (2004, 'CCPROG2', 'CCS-IT', 100000208, 2, 'G208', 30, 'Second Term', '2023-2024');
 
 -- Classes for CCPROG3
-INSERT INTO Classes (class_id, course_id, program_id, instructor_id, college_id, room_number, max_capacity)
+INSERT INTO Classes (class_id, course_id, program_id, instructor_id, college_id, room_number, max_capacity, term, school_year)
 VALUES
-    (3001, 'CCPROG3', 'CCS-ST', 100000209, 2, 'G301', 25),
-    (3002, 'CCPROG3', 'CCS-ST', 100000210, 2, 'G302', 25),
-    (3003, 'CCPROG3', 'CCS-NIS', 100000211, 2, 'G303', 25),
-    (3004, 'CCPROG3', 'CCS-IT', 100000212, 2, 'G304', 25);
-
+    (3001, 'CCPROG3', 'CCS-ST', 100000209, 2, 'G301', 25, 'Third Term', '2023-2024'),
+    (3002, 'CCPROG3', 'CCS-ST', 100000210, 2, 'G302', 25, 'Third Term', '2023-2024'),
+    (3003, 'CCPROG3', 'CCS-NIS', 100000211, 2, 'G303', 25, 'Third Term', '2023-2024'),
+    (3004, 'CCPROG3', 'CCS-IT', 100000212, 2, 'G304', 25, 'Third Term', '2023-2024');
 
 -- Classes for CCDSTRU (Discrete Structures)
-INSERT INTO Classes (class_id, course_id, program_id, instructor_id, college_id, room_number, max_capacity)
+INSERT INTO Classes (class_id, course_id, program_id, instructor_id, college_id, room_number, max_capacity, term, school_year)
 VALUES
-    (4001, 'CCDSTRU', 'CCS-ST', 100000213, 2, 'G401', 30),
-    (4002, 'CCDSTRU', 'CCS-ST', 100000214, 2, 'G402', 30),
-    (4003, 'CCDSTRU', 'CCS-NIS', 100000215, 2, 'G403', 30),
-    (4004, 'CCDSTRU', 'CCS-IT', 100000216, 2, 'G404', 30);
+    (4001, 'CCDSTRU', 'CCS-ST', 100000213, 2, 'G401', 30, 'First Term', '2023-2024'),
+    (4002, 'CCDSTRU', 'CCS-ST', 100000214, 2, 'G402', 30, 'Second Term', '2023-2024'),
+    (4003, 'CCDSTRU', 'CCS-NIS', 100000215, 2, 'G403', 30, 'Third Term', '2023-2024'),
+    (4004, 'CCDSTRU', 'CCS-IT', 100000216, 2, 'G404', 30, 'Third Term', '2023-2024');
 
-
--- Classes for CCAPDEV (Web Application Development)
-INSERT INTO Classes (class_id, course_id, program_id, instructor_id, college_id, room_number, max_capacity)
+INSERT INTO Classes (class_id, course_id, program_id, instructor_id, college_id, room_number, max_capacity, term, school_year)
 VALUES
-    (5001, 'CCAPDEV', 'CCS-ST', 100000217, 2, 'G501', 25),
-    (5002, 'CCAPDEV', 'CCS-ST', 100000218, 2, 'G502', 25),
-    (5003, 'CCAPDEV', 'CCS-NIS', 100000219, 2, 'G503', 25),
-    (5004, 'CCAPDEV', 'CCS-IT', 100000220, 2, 'G504', 25);
-
+    (5001, 'CCAPDEV', 'CCS-ST', 100000217, 2, 'G501', 25, 'First Term', '2023-2024'),
+    (5002, 'CCAPDEV', 'CCS-ST', 100000218, 2, 'G502', 25, 'Second Term', '2023-2024'),
+    (5003, 'CCAPDEV', 'CCS-NIS', 100000219, 2, 'G503', 25, 'Third Term', '2023-2024'),
+    (5004, 'CCAPDEV', 'CCS-IT', 100000220, 2, 'G504', 25, 'First Term', '2023-2024');
 
 -- Classes for CSSWENG (Software Engineering)
-INSERT INTO Classes (class_id, course_id, program_id, instructor_id, college_id, room_number, max_capacity)
+INSERT INTO Classes (class_id, course_id, program_id, instructor_id, college_id, room_number, max_capacity, term, school_year)
 VALUES
-    (6001, 'CSSWENG', 'CCS-ST', 100000221, 2, 'G601', 25),
-    (6002, 'CSSWENG', 'CCS-ST', 100000222, 2, 'G602', 25),
-    (6003, 'CSSWENG', 'CCS-NIS', 100000223, 2, 'G603', 25),
-    (6004, 'CSSWENG', 'CCS-IT', 100000224, 2, 'G604', 25);
+    (6001, 'CSSWENG', 'CCS-ST', 100000221, 2, 'G601', 25, 'First Term', '2023-2024'),
+    (6002, 'CSSWENG', 'CCS-ST', 100000222, 2, 'G602', 25, 'Second Term', '2023-2024'),
+    (6003, 'CSSWENG', 'CCS-NIS', 100000223, 2, 'G603', 25, 'Third Term', '2023-2024'),
+    (6004, 'CSSWENG', 'CCS-IT', 100000224, 2, 'G604', 25, 'First Term', '2023-2024');
+
 
 -- Schedules for CCPROG1
 INSERT INTO Schedules (class_id, instructor_id, scheduled_days, class_hours)
 VALUES
-    (1001, 100000201, 'Monday - Wednesday', '08:00 AM - 09:00 AM'),
+    (1001, 100000201, 'Monday - Thursday', '08:00 AM - 09:00 AM'),
     (1002, 100000202, 'Tuesday - Thursday', '09:00 AM - 10:00 AM'),
-    (1003, 100000203, 'Wednesday - Friday', '10:00 AM - 11:00 AM'),
+    (1003, 100000203, 'Wednesday - Saturday', '10:00 AM - 11:00 AM'),
     (1004, 100000204, 'Monday - Thursday', '08:00 AM - 09:00 AM');
-
-
+    
 -- Schedules for CCPROG2
 INSERT INTO Schedules (class_id, instructor_id, scheduled_days, class_hours)
 VALUES
-    (2001, 100000205, 'Monday - Tuesday', '10:00 AM - 11:00 AM'),
+    (2001, 100000205, 'Monday - Thursday', '10:00 AM - 11:00 AM'),
     (2002, 100000206, 'Tuesday - Friday', '11:00 AM - 12:00 PM'),
     (2003, 100000207, 'Wednesday - Saturday', '01:00 PM - 02:00 PM'),
-    (2004, 100000208, 'Thursday - Friday', '02:00 PM - 03:00 PM');
-
+    (2004, 100000208, 'Tuesday - Friday', '02:00 PM - 03:00 PM');
 
 -- Schedules for CCPROG3
 INSERT INTO Schedules (class_id, instructor_id, scheduled_days, class_hours)
 VALUES
-    (3001, 100000209, 'Monday - Wednesday', '02:00 PM - 03:00 PM'),
-    (3002, 100000210, 'Tuesday - Thursday', '03:00 PM - 04:00 PM'),
-    (3003, 100000211, 'Wednesday - Friday', '08:00 AM - 09:00 AM'),
-    (3004, 100000212, 'Thursday - Saturday', '10:00 AM - 11:00 AM');
+    (3001, 100000209, 'Monday - Thursday', '02:00 PM - 03:00 PM'),
+    (3002, 100000210, 'Tuesday - Friday', '03:00 PM - 04:00 PM'),
+    (3003, 100000211, 'Wednesday - Saturday', '08:00 AM - 09:00 AM'),
+    (3004, 100000212, 'Wednesday - Saturday', '10:00 AM - 11:00 AM');
 
 -- Schedules for CCDSTRU
 INSERT INTO Schedules (class_id, instructor_id, scheduled_days, class_hours)
 VALUES
-    (4001, 100000213, 'Monday - Tuesday', '08:00 AM - 09:00 AM'),
+    (4001, 100000213, 'Monday - Thursday', '08:00 AM - 09:00 AM'),
     (4002, 100000214, 'Tuesday - Thursday', '01:00 PM - 02:00 PM'),
     (4003, 100000215, 'Wednesday - Friday', '11:00 AM - 12:00 PM'),
     (4004, 100000216, 'Thursday - Saturday', '09:00 AM - 10:00 AM');
