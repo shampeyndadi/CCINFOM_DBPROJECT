@@ -52,7 +52,7 @@ VALUES
     ('COB-MM', 'Bachelor of Science in Marketing Management', 7),
     ('COB-MABA', 'Bachelor of Science in Management Accounting with Business Analytics', 7),
     ('COB-MA', 'Bachelor of Science in Management Accounting', 7),
-    ('COS-BIOCHEM', 'Bachelor of Science in Biochemistry', 5),
+	('COS-BIOCHEM', 'Bachelor of Science in Biochemistry', 5),
     ('COS-MBIO', 'BS in Biology major in Medical Biology', 5),
     ('COS-MOLBIO', 'BS in Biology major in Molecular Biology and Biotechnology', 5),
     ('COS-SYSBIO', 'BS in Biology major in Systematics and Ecology', 5),
@@ -91,7 +91,7 @@ VALUES
     ('SOE-BS-AEI', 'Bachelor of Science in Applied Economics major in Industrial Economics', 8),
     ('SOE-BS-AEF', 'Bachelor of Science in Applied Economics major in Financial Economics', 8),
     ('SOE-AB-ECM', 'Bachelor of Arts major in Economics', 8),
-    ('BAGCED-CEP', 'Counseling and Educational Psychology', 1),
+	('BAGCED-CEP', 'Counseling and Educational Psychology', 1),
     ('BAGCED-ELM', 'Educational Leadership and Management', 1),
     ('BAGCED-EAL', 'English and Applied Linguistics', 1),
     ('BAGCED-PE', 'Physical Education', 1),
@@ -1475,24 +1475,24 @@ VALUES
 INSERT INTO Schedules (class_id, instructor_id, scheduled_days, class_hours)
 VALUES
     (4001, 100000213, 'Monday - Thursday', '08:00 AM - 09:00 AM'),
-    (4002, 100000214, 'Tuesday - Thursday', '01:00 PM - 02:00 PM'),
-    (4003, 100000215, 'Wednesday - Friday', '11:00 AM - 12:00 PM'),
-    (4004, 100000216, 'Thursday - Saturday', '09:00 AM - 10:00 AM');
+    (4002, 100000214, 'Tuesday - Friday', '01:00 PM - 02:00 PM'),
+    (4003, 100000215, 'Wednesday - Saturday', '11:00 AM - 12:00 PM'),
+    (4004, 100000216, 'Wednesday - Saturday', '09:00 AM - 10:00 AM');
 
 
 -- Schedules for CCAPDEV
 INSERT INTO Schedules (class_id, instructor_id, scheduled_days, class_hours)
 VALUES
-    (5001, 100000217, 'Monday - Wednesday', '01:00 PM - 02:00 PM'),
-    (5002, 100000218, 'Tuesday - Thursday', '02:00 PM - 03:00 PM'),
-    (5003, 100000219, 'Wednesday - Friday', '03:00 PM - 04:00 PM'),
-    (5004, 100000220, 'Thursday - Saturday', '01:00 PM - 02:00 PM');
+    (5001, 100000217, 'Monday - Thursday', '01:00 PM - 02:00 PM'),
+    (5002, 100000218, 'Tuesday - Friday', '02:00 PM - 03:00 PM'),
+    (5003, 100000219, 'Wednesday - Saturday', '03:00 PM - 04:00 PM'),
+    (5004, 100000220, 'Wednesday - Saturday', '01:00 PM - 02:00 PM');
 
 -- Schedules for CSSWENG
 INSERT INTO Schedules (class_id, instructor_id, scheduled_days, class_hours)
 VALUES
-    (6001, 100000221, 'Monday - Wednesday', '09:00 AM - 10:00 AM'),
-    (6002, 100000222, 'Tuesday - Thursday', '10:00 AM - 11:00 AM'),
-    (6003, 100000223, 'Wednesday - Friday', '12:00 PM - 01:00 PM'),
-    (6004, 100000224, 'Thursday - Saturday', '03:00 PM - 04:00 PM');
+    (6001, 100000221, 'Monday - Thursday', '09:00 AM - 10:00 AM'),
+    (6002, 100000222, 'Tuesday - Friday', '10:00 AM - 11:00 AM'),
+    (6003, 100000223, 'Wednesday - Saturday', '12:00 PM - 01:00 PM'),
+    (6004, 100000224, 'Thursday - Friday', '03:00 PM - 04:00 PM');
         
