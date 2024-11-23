@@ -213,7 +213,7 @@ VALUES
     ('ISPRENL', 'Predictive Analytics', 3, 2, 'CCS-IS'),
     ('ISENTAR', 'Enterprise Architecture', 3, 2, 'CCS-IS'),
     ('ISSECUR', 'Information Security', 3, 2, 'CCS-IS'),
-    ('ISSTRMA', 'IT Strategic Management', 3, 2, 'CCS-IS');
+    ('ISSTRMA', 'IT Strategic Management', 3, 2, 'CCS-IS'),
 
 
     -- General Courses for GCOE
@@ -232,7 +232,7 @@ VALUES
     ('ENVENG', 'Environmental Engineering', 5, 6, NULL),
     ('MECHDES', 'Mechanical Design Basics', 5, 6, NULL),
     ('SIGNALS', 'Signals and Systems', 5, 6, NULL),
-    ('ROBOTICS', 'Introduction to Robotics', 5, 6, NULL);
+    ('ROBOTICS', 'Introduction to Robotics', 5, 6, NULL),
 
     --Chemical Engineering
 
@@ -245,7 +245,7 @@ VALUES
     ('BIOCHEM', 'Biochemical Engineering', 5, 6, 'GCOE-CHE'), 
     ('POLYMERS', 'Polymer Engineering', 3, 6, 'GCOE-CHE'),
     ('ENERGY', 'Energy Systems in Chemical Engineering', 3, 6, 'GCOE-CHE'),
-    ('CORRTECH', 'Corrosion and Material Technology', 3, 6, 'GCOE-CHE');
+    ('CORRTECH', 'Corrosion and Material Technology', 3, 6, 'GCOE-CHE'),
 
     -- Civil Engineering
     ('CIVENG', 'Introduction to Civil Engineering', 3, 6, 'GCOE-CE'),
@@ -257,7 +257,7 @@ VALUES
     ('TRANSP', 'Transportation Engineering', 3, 6, 'GCOE-CE'),
     ('ENVIRON', 'Environmental Engineering', 5, 6, 'GCOE-CE'),
     ('CONMGT', 'Construction Management', 3, 6, 'GCOE-CE'),
-    ('URBANPLAN', 'Urban Planning and Development', 5, 6, 'GCOE-CE');
+    ('URBANPLAN', 'Urban Planning and Development', 5, 6, 'GCOE-CE'),
 
     -- Electronics and Computer Engineering
     ('DIGICIR', 'Digital Circuit Design', 4, 6, 'GCOE-ECE'),
@@ -269,7 +269,7 @@ VALUES
     ('SIGNALP', 'Signal Processing', 4, 6, 'GCOE-ECE'),
     ('IOT', 'Internet of Things', 3, 6, 'GCOE-ECE'),
     ('WIRECOMM', 'Wireless Communication', 5, 6, 'GCOE-ECE'),
-    ('ROBOTSYS', 'Robotic Systems', 4, 6, 'GCOE-ECE');
+    ('ROBOTSYS', 'Robotic Systems', 4, 6, 'GCOE-ECE'),
 
     -- Industrial Engineering
     ('PRODMGT', 'Production Management', 4, 6, 'GCOE-IE'),
@@ -281,7 +281,7 @@ VALUES
     ('WORKSTUD', 'Work Study and Ergonomics', 4, 6, 'GCOE-IE'),
     ('LEANMFG', 'Lean Manufacturing', 3, 6, 'GCOE-IE'),
     ('PRODSYS', 'Production Systems', 5, 6, 'GCOE-IE'),
-    ('PROJECT', 'Project Management for Engineers', 4, 6, 'GCOE-IE');
+    ('PROJECT', 'Project Management for Engineers', 4, 6, 'GCOE-IE'),
 
     -- Manufacturing Engineering and Management
     ('MANUFPRO', 'Manufacturing Processes', 4, 6, 'GCOE-MEM'),
@@ -293,7 +293,7 @@ VALUES
     ('INDUSTRO', 'Industrial Robotics', 4, 6, 'GCOE-MEM'),
     ('SUPSYS', 'Supply Systems in Manufacturing', 3, 6, 'GCOE-MEM'),
     ('TOOLDES', 'Tool and Die Design', 5, 6, 'GCOE-MEM'),
-    ('MANUFSTR', 'Manufacturing Strategy', 4, 6, 'GCOE-MEM');
+    ('MANUFSTR', 'Manufacturing Strategy', 4, 6, 'GCOE-MEM'),
 
     -- Mechanical Engineering
     ('MECHTHERM', 'Mechanical Thermodynamics', 5, 6, 'GCOE-ME'),
@@ -305,7 +305,7 @@ VALUES
     ('VIBRATION', 'Mechanical Vibrations', 5, 6, 'GCOE-ME'),
     ('AUTOSYS', 'Automation Systems', 3, 6, 'GCOE-ME'),
     ('RENEWENG', 'Renewable Energy Systems', 4, 6, 'GCOE-ME'),
-    ('ENERMAN', 'Energy Management', 5, 6, 'GCOE-ME');
+    ('ENERMAN', 'Energy Management', 5, 6, 'GCOE-ME'),
 
     --General Courses for BAGCED
     ('PSYCH', 'Psychology', 3, 1, NULL),
@@ -318,7 +318,7 @@ VALUES
     ('LEARNTHE', 'Theories of Learning', 4, 1, NULL),
     ('SPECED', 'Special Education Principles', 3, 1, NULL),
     ('EDPSYCH', 'Educational Psychology', 5, 1, NULL),
-    ('TEACHMETH', 'Teaching Methods', 4, 1, NULL);
+    ('TEACHMETH', 'Teaching Methods', 4, 1, NULL),
 
     -- Counseling and Educational Psychology
     ('COUNSKILL', 'Counseling Skills and Techniques', 4, 1, 'BAGCED-CEP'),
@@ -330,7 +330,7 @@ VALUES
     ('FAMILYCOUN', 'Family Counseling', 4, 1, 'BAGCED-CEP'),
     ('MULTICOUN', 'Multicultural Counseling', 3, 1, 'BAGCED-CEP'),
     ('CRISISINT', 'Crisis Intervention', 5, 1, 'BAGCED-CEP'),
-    ('ABNORMAL', 'Abnormal Psychology', 4, 1, 'BAGCED-CEP');
+    ('ABNORMAL', 'Abnormal Psychology', 4, 1, 'BAGCED-CEP'),
 
     -- Educational Leadership and Management
     ('EDULAW', 'Educational Law and Ethics', 4, 1, 'BAGCED-ELM'),
@@ -342,7 +342,7 @@ VALUES
     ('PERFORMANCE', 'Performance Management in Education', 4, 1, 'BAGCED-ELM'),
     ('EDUMARKET', 'Educational Marketing and Communication', 3, 1, 'BAGCED-ELM'),
     ('LEADERETH', 'Ethics in Educational Leadership', 5, 1, 'BAGCED-ELM'),
-    ('STRATEGYMGT', 'Strategic Management in Education', 4, 1, 'BAGCED-ELM');
+    ('STRATEGYMGT', 'Strategic Management in Education', 4, 1, 'BAGCED-ELM'),
 
     -- English and Applied Linguistics
     ('ENGLING', 'Introduction to Linguistics', 4, 1, 'BAGCED-EAL'),
@@ -354,7 +354,7 @@ VALUES
     ('TESOL', 'Teaching English to Speakers of Other Languages', 4, 1, 'BAGCED-EAL'),
     ('SEMANTICS', 'Semantics and Meaning', 3, 1, 'BAGCED-EAL'),
     ('DISCOURSE', 'Discourse Analysis', 5, 1, 'BAGCED-EAL'),
-    ('LITERATURE', 'Literary Theory and Criticism', 4, 1, 'BAGCED-EAL');
+    ('LITERATURE', 'Literary Theory and Criticism', 4, 1, 'BAGCED-EAL'),
 
     -- Physical Education
     ('PEHISTORY', 'History of Physical Education', 4, 1, 'BAGCED-PE'),
@@ -366,7 +366,7 @@ VALUES
     ('COACHING', 'Coaching Techniques and Strategies', 4, 1, 'BAGCED-PE'),
     ('FITNESS', 'Fitness and Wellness', 3, 1, 'BAGCED-PE'),
     ('SPORTPSYCH', 'Sports Psychology', 5, 1, 'BAGCED-PE'),
-    ('MOTORDEVEL', 'Motor Development and Learning', 4, 1, 'BAGCED-PE');
+    ('MOTORDEVEL', 'Motor Development and Learning', 4, 1, 'BAGCED-PE'),
 
     -- Science Education
     ('SCIINTRO', 'Introduction to Science Education', 4, 1, 'BAGCED-SE'),
@@ -378,7 +378,7 @@ VALUES
     ('ENVSCI', 'Environmental Science Education', 4, 1, 'BAGCED-SE'),
     ('TECHSCI', 'Science and Technology Education', 3, 1, 'BAGCED-SE'),
     ('SCIINNOV', 'Innovations in Science Education', 5, 1, 'BAGCED-SE'),
-    ('SCIAPP', 'Applied Science in Education', 4, 1, 'BAGCED-SE');
+    ('SCIAPP', 'Applied Science in Education', 4, 1, 'BAGCED-SE'),
 
     -- Offshore and Extension Programs
     ('OFFSHOREBAS', 'Offshore Engineering Basics', 4, 1, 'BAGCED-OEP'),
@@ -390,7 +390,7 @@ VALUES
     ('OILGAS', 'Oil and Gas Production Systems', 4, 1, 'BAGCED-OEP'),
     ('EXTCOMM', 'Community Development in Extension Programs', 3, 1, 'BAGCED-OEP'),
     ('RENEWABLEEN', 'Renewable Energy in Offshore Projects', 5, 1, 'BAGCED-OEP'),
-    ('MARINETECH', 'Marine Technology in Offshore Operations', 4, 1, 'BAGCED-OEP');
+    ('MARINETECH', 'Marine Technology in Offshore Operations', 4, 1, 'BAGCED-OEP'),
 
     -- Center for Innovative Education Solutions (CIESOL)
     ('INNOEDU', 'Innovative Education Solutions', 4, 1, 'BAGCED-CIESOL'),
@@ -402,7 +402,7 @@ VALUES
     ('LEARNTECH', 'Learning Technologies for Education', 4, 1, 'BAGCED-CIESOL'),
     ('EDUCVIRTUAL', 'Virtual Education Environments', 3, 1, 'BAGCED-CIESOL'),
     ('INNOVATIVEASS', 'Innovative Assessment Strategies', 5, 1, 'BAGCED-CIESOL'),
-    ('EDUCLUSTER', 'Collaborative Learning Models', 4, 1, 'BAGCED-CIESOL');
+    ('EDUCLUSTER', 'Collaborative Learning Models', 4, 1, 'BAGCED-CIESOL'),
 
     -- General courses for School of Economics
     ('MICROECON', 'Microeconomics Theory', 4, 8, NULL),
@@ -414,7 +414,7 @@ VALUES
     ('ECONDEV', 'Economic Development and Policy', 4, 8, NULL),
     ('LABOURECON', 'Labour Economics', 3, 8, NULL),
     ('INTERNATIONAL', 'International Economics', 5, 8, NULL),
-    ('PUBLICECON', 'Public Economics and Policy', 4, 8, NULL);
+    ('PUBLICECON', 'Public Economics and Policy', 4, 8, NULL),
 
     -- Bachelor of Science in Applied Economics major in Industrial Economics
     ('INDUSTRIAL', 'Industrial Organization and Market Structure', 4, 8, 'SOE-BS-AEI'),
@@ -426,7 +426,7 @@ VALUES
     ('INDUSTTRADE', 'Industrial Trade and Global Markets', 4, 8, 'SOE-BS-AEI'),
     ('MARKETPOWER', 'Market Power and Monopoly Economics', 3, 8, 'SOE-BS-AEI'),
     ('INDECONMODELS', 'Industrial Economics Models and Analysis', 5, 8, 'SOE-BS-AEI'),
-    ('ECONOFTECH', 'Economics of Technology and Innovation in Industry', 4, 8, 'SOE-BS-AEI');
+    ('ECONOFTECH', 'Economics of Technology and Innovation in Industry', 4, 8, 'SOE-BS-AEI'),
 
     -- Bachelor of Science in Applied Economics major in Financial Economics
     ('FINMKT', 'Financial Markets and Institutions', 4, 8, 'SOE-BS-AEF'),
@@ -438,7 +438,7 @@ VALUES
     ('FINMARKETANAL', 'Financial Market Analysis', 4, 8, 'SOE-BS-AEF'),
     ('ECONFIN', 'Economics of Finance and Banking', 3, 8, 'SOE-BS-AEF'),
     ('DERIVATIVES', 'Financial Derivatives and Risk', 5, 8, 'SOE-BS-AEF'),
-    ('FINREG', 'Financial Regulation and Compliance', 4, 8, 'SOE-BS-AEF');
+    ('FINREG', 'Financial Regulation and Compliance', 4, 8, 'SOE-BS-AEF'),
 
     -- Bachelor of Arts major in Economics
     ('ECONPRIN', 'Principles of Economics', 4, 8, 'SOE-AB-ECM'),
@@ -450,7 +450,7 @@ VALUES
     ('STATFORECON', 'Statistics for Economics', 4, 8, 'SOE-AB-ECM'),
     ('INDUSTRIAL', 'Industrial Economics', 3, 8, 'SOE-AB-ECM'),
     ('ECONOFTRADE', 'Economics of International Trade', 5, 8, 'SOE-AB-ECM'),
-    ('LABOURECON', 'Labour Economics and Market Trends', 4, 8, 'SOE-AB-ECM');
+    ('LABOURECON', 'Labour Economics and Market Trends', 4, 8, 'SOE-AB-ECM'),
 
     -- General courses for College of Liberal Arts
     ('LIT', 'Introduction to Literature', 4, 4, NULL),
@@ -462,7 +462,7 @@ VALUES
     ('GEO', 'Geography of the World', 4, 4, NULL),
     ('THEO', 'Theology and Religion', 3, 4, NULL),
     ('ANTHRO', 'Introduction to Anthropology', 5, 4, NULL),
-    ('CULTSTUD', 'Cultural Studies and Diversity', 4, 4, NULL);
+    ('CULTSTUD', 'Cultural Studies and Diversity', 4, 4, NULL),
 
     -- Bachelor of Arts in Behavioral Sciences, Major in Organizational and Social Systems Development
     ('ORGSYS', 'Organizational Systems and Structure', 4, 4, 'CLA-BSHS-OSSD'),
@@ -474,7 +474,7 @@ VALUES
     ('HRDEVELOPMENT', 'Human Resource Development in Organizations', 4, 4, 'CLA-BSHS-OSSD'),
     ('SOCIALCAPITAL', 'Social Capital and Network Building', 3, 4, 'CLA-BSHS-OSSD'),
     ('TEAMDYNAMICS', 'Team Dynamics and Performance', 5, 4, 'CLA-BSHS-OSSD'),
-    ('ORGANIZATIONALBEHAVIOR', 'Organizational Behavior and Psychology', 4, 4, 'CLA-BSHS-OSSD');
+    ('ORGANIZATIONALBEHAVIOR', 'Organizational Behavior and Psychology', 4, 4, 'CLA-BSHS-OSSD'),
 
     -- Bachelor of Arts in Development Studies
     ('DEVECON', 'Development Economics', 4, 4, 'CLA-DS'),
@@ -486,7 +486,7 @@ VALUES
     ('DEVADMIN', 'Development Administration and Governance', 4, 4, 'CLA-DS'),
     ('INTERNATIONALDEV', 'International Development and Cooperation', 3, 4, 'CLA-DS'),
     ('CIVILSOCIETY', 'Civil Society and Development', 5, 4, 'CLA-DS'),
-    ('DEVPOLITICS', 'Politics of Development', 4, 4, 'CLA-DS');
+    ('DEVPOLITICS', 'Politics of Development', 4, 4, 'CLA-DS'),
 
     -- Bachelor of Arts in Southeast Asian Studies
     ('SEAHISTORY', 'History of Southeast Asia', 4, 4, 'CLA-SEA'),
@@ -498,7 +498,7 @@ VALUES
     ('SEAGOVERNANCE', 'Governance and Politics in Southeast Asia', 4, 4, 'CLA-SEA'),
     ('SEADIPLOMACY', 'Southeast Asian Diplomacy and Foreign Relations', 3, 4, 'CLA-SEA'),
     ('SEALITERATURE', 'Literature of Southeast Asia', 5, 4, 'CLA-SEA'),
-    ('SEANATURALRESOURCES', 'Natural Resources and Environment in Southeast Asia', 4, 4, 'CLA-SEA');
+    ('SEANATURALRESOURCES', 'Natural Resources and Environment in Southeast Asia', 4, 4, 'CLA-SEA'),
 
     -- AB in International Studies, Major in American Studies
     ('AMHISTORY', 'History of the United States', 4, 4, 'CLA-IS-AMS'),
@@ -510,7 +510,7 @@ VALUES
     ('AMERICANSOCIETY', 'Society and Social Issues in the U.S.', 4, 4, 'CLA-IS-AMS'),
     ('AMERICANDIPLOMACY', 'American Diplomacy and International Relations', 3, 4, 'CLA-IS-AMS'),
     ('AMERIPOPCULTURE', 'Popular Culture in the U.S.', 5, 4, 'CLA-IS-AMS'),
-    ('USGOVERNMENT', 'The U.S. Government and Political Systems', 4, 4, 'CLA-IS-AMS');
+    ('USGOVERNMENT', 'The U.S. Government and Political Systems', 4, 4, 'CLA-IS-AMS'),
 
     -- AB in International Studies, Major in European Studies
     ('EUHISTORY', 'History of Europe', 4, 4, 'CLA-IS-EUS'),
@@ -522,7 +522,7 @@ VALUES
     ('EUROPEANUNION', 'The European Union and Its Policies', 4, 4, 'CLA-IS-EUS'),
     ('EUROPEANART', 'Art and Architecture of Europe', 3, 4, 'CLA-IS-EUS'),
     ('EUROPEANSTUDIES', 'Contemporary European Studies', 5, 4, 'CLA-IS-EUS'),
-    ('EUROPEANGOVERNMENT', 'Government and Politics in European Countries', 4, 4, 'CLA-IS-EUS');
+    ('EUROPEANGOVERNMENT', 'Government and Politics in European Countries', 4, 4, 'CLA-IS-EUS'),
 
     -- AB in International Studies, Major in Japanese Studies
     ('JPHISTORY', 'History of Japan', 4, 4, 'CLA-IS-JPS'),
@@ -534,7 +534,7 @@ VALUES
     ('JAPANESEART', 'Art and Aesthetics of Japan', 4, 4, 'CLA-IS-JPS'),
     ('JAPANLINGUISTICS', 'Japanese Language and Linguistics', 3, 4, 'CLA-IS-JPS'),
     ('JAPANESEPOP', 'Popular Culture in Japan', 5, 4, 'CLA-IS-JPS'),
-    ('JAPANSTUDIES', 'Contemporary Japan and Its Global Influence', 4, 4, 'CLA-IS-JPS');
+    ('JAPANSTUDIES', 'Contemporary Japan and Its Global Influence', 4, 4, 'CLA-IS-JPS'),
 
     -- AB in International Studies, Major in Chinese Studies
     ('CHINESEHISTORY', 'History of China', 4, 4, 'CLA-IS-CNS'),
@@ -546,7 +546,7 @@ VALUES
     ('CHINESEART', 'Art and Culture of China', 4, 4, 'CLA-IS-CNS'),
     ('CHINESELANGUAGE', 'Chinese Language and Linguistics', 3, 4, 'CLA-IS-CNS'),
     ('CHINESEPOP', 'Popular Culture in China', 5, 4, 'CLA-IS-CNS'),
-    ('CHINASTUDIES', 'Contemporary China and Its Global Role', 4, 4, 'CLA-IS-CNS');
+    ('CHINASTUDIES', 'Contemporary China and Its Global Role', 4, 4, 'CLA-IS-CNS'),
 
     -- Bachelor of Arts in Literature Major in Creative Writing
     ('CW101', 'Introduction to Creative Writing', 4, 4, 'CLA-LIT-CW'),
@@ -558,7 +558,7 @@ VALUES
     ('GENREWRITING', 'Genre Writing: Fantasy, Sci-Fi, and Beyond', 4, 4, 'CLA-LIT-CW'),
     ('WRITINGSKILLS', 'Advanced Writing and Editing Techniques', 3, 4, 'CLA-LIT-CW'),
     ('CREATIVECOLLAB', 'Collaborative Creative Writing Projects', 5, 4, 'CLA-LIT-CW'),
-    ('WRITERSWORKSHOP', 'Creative Writing Workshop', 4, 4, 'CLA-LIT-CW');
+    ('WRITERSWORKSHOP', 'Creative Writing Workshop', 4, 4, 'CLA-LIT-CW'),
 
     -- Bachelor of Arts in Literature Major in Literary and Cultural Studies
     ('LITCULT', 'Literary and Cultural Theory', 4, 4, 'CLA-LIT-LC'),
@@ -570,7 +570,7 @@ VALUES
     ('CULTURALCRITICISM', 'Cultural Criticism and Contemporary Issues', 4, 4, 'CLA-LIT-LC'),
     ('LITANDMEDIA', 'Literature and Media Studies', 3, 4, 'CLA-LIT-LC'),
     ('LITANDIDENTITY', 'Literature, Identity, and Representation', 5, 4, 'CLA-LIT-LC'),
-    ('LITINTRANSLATION', 'Literary Translation and Its Challenges', 4, 4, 'CLA-LIT-LC');
+    ('LITINTRANSLATION', 'Literary Translation and Its Challenges', 4, 4, 'CLA-LIT-LC'),
 
     -- Bachelor of Arts in Philippine Studies, Major in Filipino in Mass Media
     ('FILIPINOMEDIA', 'Filipino in Mass Media', 4, 4, 'CLA-PHS'),
@@ -582,7 +582,7 @@ VALUES
     ('FILIPINOCULTURE', 'Filipino Culture and Media Representation', 4, 4, 'CLA-PHS'),
     ('MEDIAETHICS', 'Media Ethics and Responsibility in the Philippines', 3, 4, 'CLA-PHS'),
     ('FILIPINOMARKETING', 'Marketing and Advertising in Filipino Media', 5, 4, 'CLA-PHS'),
-    ('MEDIAANDIDENTITY', 'Media and National Identity in the Philippines', 4, 4, 'CLA-PHS');
+    ('MEDIAANDIDENTITY', 'Media and National Identity in the Philippines', 4, 4, 'CLA-PHS'),
 
     -- Bachelor of Arts in Political Science
     ('POLITICALTHEORY', 'Political Theory and Thought', 4, 4, 'CLA-PLS'),
@@ -594,7 +594,7 @@ VALUES
     ('POLITICALECONOMY', 'Political Economy and Global Development', 4, 4, 'CLA-PLS'),
     ('COMPARATIVEPOLITICS', 'Comparative Politics and Political Systems', 3, 4, 'CLA-PLS'),
     ('POLITICALCULTURE', 'Political Culture and Social Movements', 5, 4, 'CLA-PLS'),
-    ('ELECTIONSTUDIES', 'Elections and Voter Behavior', 4, 4, 'CLA-PLS');
+    ('ELECTIONSTUDIES', 'Elections and Voter Behavior', 4, 4, 'CLA-PLS'),
 
     -- Bachelor of Arts in Communication Arts
     ('COMMUNICATIONTHEORY', 'Communication Theory and Models', 4, 4, 'CLA-CA'),
@@ -606,7 +606,7 @@ VALUES
     ('TELEVISIONSTUDIES', 'Television Production and Media Studies', 4, 4, 'CLA-CA'),
     ('DIGITALMEDIA', 'Digital Media and Content Creation', 3, 4, 'CLA-CA'),
     ('COMMUNITYMEDIA', 'Community Media and Development', 5, 4, 'CLA-CA'),
-    ('MASSCOMMUNICATION', 'Mass Communication and Society', 4, 4, 'CLA-CA');
+    ('MASSCOMMUNICATION', 'Mass Communication and Society', 4, 4, 'CLA-CA'),
 
     -- Bachelor of Arts in Organizational Communication
     ('ORGCOMMUNICATION', 'Organizational Communication and Leadership', 4, 4, 'CLA-OC'),
@@ -618,7 +618,7 @@ VALUES
     ('TEAMCOMMUNICATION', 'Team Communication and Collaboration', 4, 4, 'CLA-OC'),
     ('CORPORATECOMMUNICATION', 'Corporate Communication and Brand Management', 3, 4, 'CLA-OC'),
     ('CRISISCOMMUNICATION', 'Crisis Communication and Management', 5, 4, 'CLA-OC'),
-    ('LEADERSHIPCOMMUNICATION', 'Leadership and Communication in Organizations', 4, 4, 'CLA-OC');
+    ('LEADERSHIPCOMMUNICATION', 'Leadership and Communication in Organizations', 4, 4, 'CLA-OC'),
 
     -- AB, Major in Philosophy
     ('PHILOSOPHYINTRO', 'Introduction to Philosophy', 4, 4, 'CLA-PHL'),
@@ -630,7 +630,7 @@ VALUES
     ('POLITICALPHILOSOPHY', 'Political Philosophy and Justice', 4, 4, 'CLA-PHL'),
     ('PHILOFRELIGION', 'Philosophy of Religion and Belief Systems', 3, 4, 'CLA-PHL'),
     ('AESTHETICS', 'Aesthetics and the Philosophy of Art', 5, 4, 'CLA-PHL'),
-    ('PHILOSOPHICALISSUES', 'Contemporary Philosophical Issues and Debates', 4, 4, 'CLA-PHL');
+    ('PHILOSOPHICALISSUES', 'Contemporary Philosophical Issues and Debates', 4, 4, 'CLA-PHL'),
 
     -- Bachelor of Arts in Psychology
     ('INTROPSYCHOLOGY', 'Introduction to Psychology', 4, 4, 'CLA-PSY'),
@@ -642,7 +642,7 @@ VALUES
     ('ABNORMALPSYCH', 'Abnormal Psychology and Mental Disorders', 4, 4, 'CLA-PSY'),
     ('BIOLOGICALPSYCH', 'Biological Psychology and Neuroscience', 3, 4, 'CLA-PSY'),
     ('PSYCHOPATHOLOGY', 'Psychopathology and Mental Health', 5, 4, 'CLA-PSY'),
-    ('PSYCHOFAMILIES', 'Psychology of Families and Relationships', 4, 4, 'CLA-PSY');
+    ('PSYCHOFAMILIES', 'Psychology of Families and Relationships', 4, 4, 'CLA-PSY'),
 
     -- Bachelor of Science in Psychology
     ('PSYCHBIOLOGY', 'Biopsychology and Neuroscience', 4, 4, 'CLA-BSPSY'),
@@ -654,7 +654,7 @@ VALUES
     ('PSYCHANDHEALTH', 'Health Psychology and Behavioral Medicine', 4, 4, 'CLA-BSPSY'),
     ('DEVELOPMENTALPSY', 'Developmental Psychology Across the Lifespan', 3, 4, 'CLA-BSPSY'),
     ('PSYCHOFAMILY', 'Family Dynamics and Psychological Perspectives', 5, 4, 'CLA-BSPSY'),
-    ('PSYCHOFORNSICS', 'Forensic Psychology and Criminal Behavior', 4, 4, 'CLA-BSPSY');
+    ('PSYCHOFORNSICS', 'Forensic Psychology and Criminal Behavior', 4, 4, 'CLA-BSPSY'),
 
     -- AB Sociology
     ('INTRODSOCIOLOGY', 'Introduction to Sociology', 4, 4, 'CLA-SOC'),
@@ -666,7 +666,7 @@ VALUES
     ('SOCIALCHANGE', 'Social Change and Modernization', 4, 4, 'CLA-SOC'),
     ('SOCIALPSYCHOLOGY', 'Social Psychology and Group Dynamics', 3, 4, 'CLA-SOC'),
     ('RESEARCHMETHODOLOGY', 'Research Methods in Sociology', 5, 4, 'CLA-SOC'),
-    ('SOCIETYANDGENDER', 'Gender, Society, and Social Movements', 4, 4, 'CLA-SOC');
+    ('SOCIETYANDGENDER', 'Gender, Society, and Social Movements', 4, 4, 'CLA-SOC'),
 
     -- Bachelor of Arts (Honors) and Master of Arts in Behavioral Sciences with Specialization in Organizational and Social Systems Development (Ladderized Program)
     ('ORGDEVELOPMENT', 'Organizational Development and Change', 4, 4, 'CLA-MA-BSHS-OSSD'),
@@ -678,7 +678,7 @@ VALUES
     ('ORGANIZATIONALCULTURE', 'Organizational Culture and Communication', 4, 4, 'CLA-MA-BSHS-OSSD'),
     ('SOCIALINNOVATION', 'Social Innovation and Systemic Change', 3, 4, 'CLA-MA-BSHS-OSSD'),
     ('GROUPDYNAMICS', 'Group Dynamics and Team Building', 5, 4, 'CLA-MA-BSHS-OSSD'),
-    ('STRATEGICPLANNING', 'Strategic Planning and Organizational Effectiveness', 4, 4, 'CLA-MA-BSHS-OSSD');
+    ('STRATEGICPLANNING', 'Strategic Planning and Organizational Effectiveness', 4, 4, 'CLA-MA-BSHS-OSSD'),
 
     -- School of Law
     ('INTROLAW', 'Introduction to Law', 4, 3, NULL),
@@ -747,7 +747,62 @@ VALUES
     ('STHCUIX', 'CSSWENG'),    -- STHCUIX requires CSSWENG
     ('STINTSY', 'CSINTSY'),    -- STINTSY requires CSINTSY
     ('STDISCM', 'CSOPESY'),    -- STDISCM requires CSOPESY
-    ('STMETRE', 'STALGC');   -- STMETRE requires STALGC
+    ('STMETRE', 'STALGC'),  -- STMETRE requires STALGC
+
+    -- School of Law Pre-Reqs
+    ('CIVILLAW', 'INTROLAW'),
+    ('CONSTITUTIONALLAW', 'CIVILLAW'),
+    ('LEGALRESEARCH', 'CONSTITUTIONALLAW'),
+    ('LAWOFOBLIGATIONS', 'CRIMINALLAW'),
+
+    -- School of Economics
+    ('MACROECON', 'MICROECON'),
+    ('STATECON', 'MACROECON'),
+    ('ECONMODELS', 'ECONMATH'),
+    ('INDUSTTRADE', 'INDECONMGT'),
+    ('MACROFIN', 'CORPFIN'),
+    ('ECONOFTRADE', 'STATFORECON'),
+
+    -- College of Liberal Arts
+    ('CULTSTUD', 'PSYCH'),
+    ('CHANGELEADERSHIP', 'LEADERSHIP'),
+    ('RURALDEV', 'HUMANDEV'),
+    ('SEALITERATURE', 'SEAHISTORY'),
+    ('USGOVERNMENT', 'AMPOLITICS'),
+    ('EUROPEANSTUDIES', 'EUHISTORY'),
+    ('JAPANSTUDIES', 'JAPANSOCIETY'),
+    ('CHINESELANGUAGE', 'CHINESELIT'),
+    ('CREATIVESTYLE', 'CW101'),
+    ('LITANDMEDIA', 'LITCULT'),
+    ('FILIPINOMARKETING', 'FILIPINOMEDIA'),
+    ('POLITICALCULTURE', 'POLITICALTHEORY'),
+    ('COMMUNITYMEDIA', 'PUBLICRELATIONS'),
+    ('CORPORATECOMMUNICATION', 'ORGCOMMUNICATION'),
+    ('PHILOSOPHICALISSUES', 'PHILOSOPHYINTRO'),
+    ('ABNORMALPSYCH', 'DEVELOPMENTALPSY'),
+    ('PSYCHANDHEALTH', 'PSYCHBIOLOGY'),
+    ('SOCIALPSYCHOLOGY', 'INTRODSOCIOLOGY'),
+    ('SOCIALINNOVATION', 'SOCIALSYSTEMS'),
+
+    -- College of Education
+    ('CURRDEV', 'CHILDPDEV'),
+    ('ABNORMAL', 'PSYCHASS'),
+    ('LEADERETH', 'LEADDEVEL'),
+    ('SOCIOLING', 'ENGLING'),
+    ('COACHING', 'PEHISTORY'),
+    ('TECHSCI', 'CHEMEDU'),
+    ('OFFSHORELAW', 'OFFSHOREBAS'),
+    ('LEARNTECH', 'INNOEDU'),
+   
+    -- College of Engineering
+   ('MECHDES', 'ENGMECH'),
+   ('BIOCHEM', 'CHEMENG'),
+   ('ENVIRON', 'GEOTECH'),
+   ('WIRECOMM', 'MICROPRO'),
+   ('PRODSYS', 'PRODMGT'),
+   ('INDUSTRO', 'AUTOMATION'),
+   ('MACHDES', 'MECHTHERM'),
+   ('RENEWENG', 'VIBRATION');
 
 CREATE TABLE Students (
     student_id INT NOT NULL,
